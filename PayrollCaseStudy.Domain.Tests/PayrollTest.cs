@@ -4,6 +4,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace PayrollCaseStudy.Domain.Tests {
     [TestClass]
     public class PayrollTest {
+        [TestInitialize]
+        public void Init() {
+            PayrollDatabase.Instance.Clear();
+        }
+
         [TestMethod]
         public void TestAddSalariedEmployee() {
             int empId = 1;
@@ -81,6 +86,24 @@ namespace PayrollCaseStudy.Domain.Tests {
             PaymentMethod pm = e.GetMethod();
 
             Assert.IsInstanceOfType(pm, typeof(HoldMethod));
+        }
+
+        [TestMethod]
+        public void TestDeleteEmployee() {
+            int empId = 3;
+            var addTx = new AddCommissionedEmployee(empId,"Lance", "Home", 2500, 3.2M);
+            addTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee);
+
+            var deleteTx = new DeleteEmployeeTransaction(empId);
+            deleteTx.Execute();
+
+            employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNull(employee);
         }
     }
 }

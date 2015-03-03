@@ -9,7 +9,11 @@ namespace PayrollCaseStudy.Domain {
         readonly Dictionary<int, Employee> _itsEmployees = new Dictionary<int,Employee>();
 
         public Employee GetEmployee(int employeeId) {
-            return _itsEmployees[employeeId];
+            if(_itsEmployees.ContainsKey(employeeId)) {
+                return _itsEmployees[employeeId];
+            }
+            
+            return null;
         }
         public void AddEmployee(int employeeId, Employee employee) {
             _itsEmployees[employeeId] = employee;
@@ -21,5 +25,9 @@ namespace PayrollCaseStudy.Domain {
         PayrollDatabase(){}
 
         public readonly static PayrollDatabase Instance = new PayrollDatabase();
+
+        internal void DeleteEmployee(int employeeId) {
+            _itsEmployees.Remove(employeeId);
+        }
     }
 }
