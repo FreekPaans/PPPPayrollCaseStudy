@@ -105,5 +105,26 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             Assert.IsNull(employee);
         }
+
+        [TestMethod]
+        public void TestTimeCardTransaction() {
+            int empId = 2;
+            var addTx = new AddHourlyEmployee(empId,"Bill", "Home", 15.25M);
+            addTx.Execute();
+
+            
+            var timeCardTransaction = new TimeCardTransaction(20011031, 8.0M, empId);
+            timeCardTransaction.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+            Assert.IsNotNull(employee);
+
+            PaymentClassification classification = employee.GetClassification();
+            var hourlyClassification = (HourlyClassification)classification;
+
+            var timeCard = hourlyClassification.GetTimeCard(20011031);
+            Assert.IsNotNull(timeCard);
+            Assert.AreEqual(8.0M, timeCard.Hours);
+        }
     }
 }

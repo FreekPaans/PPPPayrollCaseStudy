@@ -56,6 +56,8 @@
     <Compile Include="PayrollDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalariedClassification.cs" />
+    <Compile Include="TimeCard.cs" />
+    <Compile Include="TimeCardTransaction.cs" />
     <Compile Include="WeeklySchedule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

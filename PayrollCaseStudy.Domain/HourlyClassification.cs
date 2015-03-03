@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace PayrollCaseStudy.Domain {
     public class HourlyClassification : PaymentClassification{
         private decimal _hourlyRate;
+        readonly List<TimeCard> _timeCards;
 
         public decimal HourlyRate {
             get { return _hourlyRate; }
@@ -14,7 +15,16 @@ namespace PayrollCaseStudy.Domain {
 
         public HourlyClassification(decimal hourlyRate) {
             _hourlyRate = hourlyRate;
+            _timeCards = new List<TimeCard>();
         }
-        
+
+
+        public TimeCard GetTimeCard(int date) {
+            return _timeCards.Single(_=>_.Date==date);
+        }
+
+        internal void AddTimeCard(TimeCard timeCard) {
+            _timeCards.Add(timeCard);
+        }
     }
 }
