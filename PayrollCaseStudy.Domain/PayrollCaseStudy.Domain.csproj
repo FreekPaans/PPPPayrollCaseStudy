@@ -43,6 +43,7 @@
     <Compile Include="AddEmployeeTransaction.cs" />
     <Compile Include="AddHourlyEmployee.cs" />
     <Compile Include="AddSalariedEmployee.cs" />
+    <Compile Include="Affiliation.cs" />
     <Compile Include="BiweeklySchedule.cs" />
     <Compile Include="CommissionedClassification.cs" />
     <Compile Include="DeleteEmployeeTransaction.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="HoldMethod.cs" />
     <Compile Include="HourlyClassification.cs" />
     <Compile Include="MonthlySchedule.cs" />
+    <Compile Include="NoAffiliation.cs" />
     <Compile Include="PaymentClassification.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="PaymentSchedule.cs" />
@@ -58,8 +60,11 @@
     <Compile Include="SalariedClassification.cs" />
     <Compile Include="SalesReceipt.cs" />
     <Compile Include="SalesReceiptTransaction.cs" />
+    <Compile Include="ServiceCharge.cs" />
+    <Compile Include="ServiceChargeTransaction.cs" />
     <Compile Include="TimeCard.cs" />
     <Compile Include="TimeCardTransaction.cs" />
+    <Compile Include="UnionAffiliation.cs" />
     <Compile Include="WeeklySchedule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

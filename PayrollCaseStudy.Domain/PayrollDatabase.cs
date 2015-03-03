@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace PayrollCaseStudy.Domain {
     public class PayrollDatabase {
         readonly Dictionary<int, Employee> _itsEmployees = new Dictionary<int,Employee>();
+        readonly Dictionary<int,int> _unionMemberMap = new Dictionary<int,int>();
 
         public Employee GetEmployee(int employeeId) {
             if(_itsEmployees.ContainsKey(employeeId)) {
@@ -28,6 +29,14 @@ namespace PayrollCaseStudy.Domain {
 
         internal void DeleteEmployee(int employeeId) {
             _itsEmployees.Remove(employeeId);
+        }
+
+        public void AddUnionMember(int memberId,Employee employee) {
+            _unionMemberMap[memberId] = employee.EmployeeId;
+        }
+
+        internal Employee GetUnionMember(int memberId) {
+            return GetEmployee(_unionMemberMap[memberId]);
         }
     }
 }

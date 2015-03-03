@@ -6,13 +6,23 @@ using System.Text;
 namespace PayrollCaseStudy.Domain {
     public class Employee {
         private int _employeeId;
+
+        public int EmployeeId {
+            get { return _employeeId; }
+        }
         private string _name;
 
         public string Name {
             get { return _name; }
-            set { _name = value; }
         }
         private string _address;
+
+        private Affiliation _affiliation = new NoAffiliation();
+
+        public Affiliation Affiliation {
+            get { return _affiliation; }
+            set { _affiliation = value; }
+        }
 
         public Employee(int employeeId,string name,string address) {
             _employeeId = employeeId;
@@ -38,5 +48,6 @@ namespace PayrollCaseStudy.Domain {
         public PaymentMethod GetMethod() {
             return Method;
         }
+
     }
 }

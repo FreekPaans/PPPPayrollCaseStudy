@@ -149,5 +149,29 @@ namespace PayrollCaseStudy.Domain.Tests {
             var firstReceipt = receipts.First();
             Assert.AreEqual(1000M, firstReceipt.Amount);
         }
+
+        [TestMethod]
+        public void TestAddServiceCharge() {
+            int empId = 2;
+            var addTx = new AddHourlyEmployee(empId,"Bill", "Home", 15.25M);
+            addTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            var unionAffiliation = new UnionAffiliation(12.5M);
+
+            employee.Affiliation = unionAffiliation;
+
+            int memberId = 86;
+            
+            PayrollDatabase.Instance.AddUnionMember(memberId,employee);
+
+            var serviceChargeTransaction = new ServiceChargeTransaction(memberId, 20011101,12.95M);
+            serviceChargeTransaction.Execute();
+
+            var serviceCharge = unionAffiliation.GetServiceCharge(20011101);
+            Assert.IsNotNull(serviceCharge);
+            Assert.AreEqual(12.95M,serviceCharge.Amount);
+        }
     }
 }
