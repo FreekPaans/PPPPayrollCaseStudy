@@ -39,9 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCommissionedEmployee.cs" />
     <Compile Include="AddEmployeeTransaction.cs" />
     <Compile Include="AddHourlyEmployee.cs" />
     <Compile Include="AddSalariedEmployee.cs" />
+    <Compile Include="BiweeklySchedule.cs" />
+    <Compile Include="CommissionedClassification.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="HoldMethod.cs" />
     <Compile Include="HourlyClassification.cs" />

@@ -55,5 +55,32 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             Assert.IsInstanceOfType(pm, typeof(HoldMethod));
         }
+
+        [TestMethod]
+        public void TestAddCommisionedEmployee() {
+            int empId = 1;
+            var t = new AddCommissionedEmployee(empId, "Bob", "Home", 1000.0M, 50.0M);
+
+            t.Execute();
+
+            var e = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.AreEqual("Bob", e.Name);
+
+            PaymentClassification pc = e.GetClassification();
+
+            CommissionedClassification sc = (CommissionedClassification)pc;
+
+            Assert.AreEqual(sc.Salary, 1000.00M);
+            Assert.AreEqual(sc.CommissionRate, 50.0M);
+
+            PaymentSchedule ps = e.GetSchedule();
+
+            Assert.IsInstanceOfType(ps, typeof(BiweeklySchedule));
+
+            PaymentMethod pm = e.GetMethod();
+
+            Assert.IsInstanceOfType(pm, typeof(HoldMethod));
+        }
     }
 }
