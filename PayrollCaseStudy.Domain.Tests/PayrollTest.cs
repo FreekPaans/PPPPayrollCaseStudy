@@ -29,5 +29,31 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             Assert.IsInstanceOfType(pm, typeof(HoldMethod));
         }
+
+        [TestMethod]
+        public void TestAddHourlyEmployee() {
+            int empId = 1;
+            var t = new AddHourlyEmployee(empId, "Bob", "Home", 10.0M);
+
+            t.Execute();
+
+            var e = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.AreEqual("Bob", e.Name);
+
+            PaymentClassification pc = e.GetClassification();
+
+            HourlyClassification sc = (HourlyClassification)pc;
+
+            Assert.AreEqual(sc.HourlyRate, 10.00M);
+
+            PaymentSchedule ps = e.GetSchedule();
+
+            Assert.IsInstanceOfType(ps, typeof(WeeklySchedule));
+
+            PaymentMethod pm = e.GetMethod();
+
+            Assert.IsInstanceOfType(pm, typeof(HoldMethod));
+        }
     }
 }
