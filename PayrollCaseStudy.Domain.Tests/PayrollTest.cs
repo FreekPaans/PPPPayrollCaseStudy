@@ -7,11 +7,11 @@ namespace PayrollCaseStudy.Domain.Tests {
         [TestMethod]
         public void TestAddSalariedEmployee() {
             int empId = 1;
-            var t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.0);
+            var t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.0M);
 
             t.Execute();
 
-            var e = GpayrollDatabase.GetEmployee(empId);
+            var e = PayrollDatabase.Instance.GetEmployee(empId);
 
             Assert.AreEqual("Bob", e.Name);
 
@@ -19,7 +19,7 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             SalariedClassification sc = (SalariedClassification)pc;
 
-            Assert.AreEqual(sc.GetSalary(), 1000.00);
+            Assert.AreEqual(sc.Salary, 1000.00M);
 
             PaymentSchedule ps = e.GetSchedule();
 

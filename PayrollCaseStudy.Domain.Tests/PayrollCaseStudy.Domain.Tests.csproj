@@ -53,6 +53,12 @@
     <Compile Include="PayrollTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PayrollCaseStudy.Domain\PayrollCaseStudy.Domain.csproj">
+      <Project>{617c6fa7-44ef-4c2a-99ce-6e2605bfbf04}</Project>
+      <Name>PayrollCaseStudy.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
