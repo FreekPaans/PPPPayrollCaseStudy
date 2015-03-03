@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PayrollCaseStudy.Domain.Tests {
@@ -125,6 +126,28 @@ namespace PayrollCaseStudy.Domain.Tests {
             var timeCard = hourlyClassification.GetTimeCard(20011031);
             Assert.IsNotNull(timeCard);
             Assert.AreEqual(8.0M, timeCard.Hours);
+        }
+
+        [TestMethod]
+        public void TestSalesReceiptTransaction() {
+            int empId = 2;
+            var addTx = new AddCommissionedEmployee(empId,"Bill", "Home", 1000M,3.2M);
+            addTx.Execute();
+
+            var salesReceiptTX = new SalesReceiptTransaction(1000M, 20011031, empId);
+
+            salesReceiptTX.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+            Assert.IsNotNull(employee);
+
+            PaymentClassification classification = employee.GetClassification();
+            var commissionedClassification = (CommissionedClassification)classification;
+
+            var receipts = commissionedClassification.GetSalesReceiptsForDate(20011031);
+            Assert.AreEqual(1,receipts.Count, "Receipt count for date is not 1");
+            var firstReceipt = receipts.First();
+            Assert.AreEqual(1000M, firstReceipt.Amount);
         }
     }
 }

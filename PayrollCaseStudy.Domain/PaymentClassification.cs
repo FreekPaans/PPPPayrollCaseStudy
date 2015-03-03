@@ -4,6 +4,6 @@ using System.Linq;
 using System.Text;
 
 namespace PayrollCaseStudy.Domain {
-    public class PaymentClassification {
+    public interface PaymentClassification {
     }
 }
