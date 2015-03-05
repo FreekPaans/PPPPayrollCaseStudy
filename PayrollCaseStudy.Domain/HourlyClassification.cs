@@ -26,5 +26,9 @@ namespace PayrollCaseStudy.Domain {
         internal void AddTimeCard(TimeCard timeCard) {
             _timeCards.Add(timeCard);
         }
+
+        public decimal CalculatePay(Paycheck paycheck) {
+            throw new NotImplementedException();
+        }
     }
 }

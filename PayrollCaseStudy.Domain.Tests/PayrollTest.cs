@@ -173,5 +173,27 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.IsNotNull(serviceCharge);
             Assert.AreEqual(12.95M,serviceCharge.Amount);
         }
+
+        [TestMethod]
+        public void TestPaySingleSalariedEmployee() {
+            int empId = 1;
+
+            var addTx = new AddSalariedEmployee(empId,"Bob", "Home", 1000);
+            addTx.Execute();
+
+            var payDate = new Date(11,30,2001);
+
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            Assert.IsNotNull(paycheck);
+            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(1000M,paycheck.GrossPay);
+            Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
+            Assert.AreEqual(0M,paycheck.Deductions);
+            Assert.AreEqual(1000M, paycheck.NetPay);
+        }
     }
 }

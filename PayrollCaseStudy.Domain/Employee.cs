@@ -49,5 +49,20 @@ namespace PayrollCaseStudy.Domain {
             return Method;
         }
 
+
+        internal bool IsPayDate(Date date) {
+            return Schedule.IsPayDate(date);
+        }
+
+        internal void Payday(Paycheck paycheck) {
+            var grosspay = Classification.CalculatePay(paycheck);
+            var deductions = Affiliation.CalculateDeductions(paycheck);
+            var netPay = grosspay - deductions;
+
+            paycheck.GrossPay = grosspay;
+            paycheck.NetPay = netPay;
+            paycheck.Deductions = deductions;
+            Method.Pay(paycheck);
+        }
     }
 }

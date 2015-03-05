@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
     public class WeeklySchedule : PaymentSchedule{
+        public bool IsPayDate(Date date) {
+            throw new NotImplementedException();
+        }
     }
 }

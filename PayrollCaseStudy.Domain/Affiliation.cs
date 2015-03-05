@@ -5,5 +5,6 @@ using System.Text;
 
 namespace PayrollCaseStudy.Domain {
     public interface Affiliation {
+        decimal CalculateDeductions(Paycheck paycheck);
     }
 }

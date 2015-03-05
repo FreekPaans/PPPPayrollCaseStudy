@@ -5,5 +5,8 @@ using System.Text;
 
 namespace PayrollCaseStudy.Domain {
     public class PaymentMethod {
+        internal void Pay(Paycheck paycheck) {
+            
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace PayrollCaseStudy.Domain {
-    public class PaymentSchedule {
+    public interface PaymentSchedule {
+        bool IsPayDate(Date date);
     }
 }

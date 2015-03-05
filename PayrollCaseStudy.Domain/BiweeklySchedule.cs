@@ -5,5 +5,8 @@ using System.Text;
 
 namespace PayrollCaseStudy.Domain {
     public class BiweeklySchedule : PaymentSchedule{
+        public bool IsPayDate(Date date) {
+            throw new NotImplementedException();
+        }
     }
 }

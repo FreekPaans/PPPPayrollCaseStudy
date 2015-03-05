@@ -14,5 +14,9 @@ namespace PayrollCaseStudy.Domain {
         public SalariedClassification(decimal itsSalary) {
             _itsSalary = itsSalary;
         }
+
+        public decimal CalculatePay(Paycheck paycheck) {
+            return _itsSalary;
+        }
     }
 }

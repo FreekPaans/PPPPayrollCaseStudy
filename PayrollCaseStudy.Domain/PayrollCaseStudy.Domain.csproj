@@ -46,12 +46,15 @@
     <Compile Include="Affiliation.cs" />
     <Compile Include="BiweeklySchedule.cs" />
     <Compile Include="CommissionedClassification.cs" />
+    <Compile Include="Date.cs" />
     <Compile Include="DeleteEmployeeTransaction.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="HoldMethod.cs" />
     <Compile Include="HourlyClassification.cs" />
     <Compile Include="MonthlySchedule.cs" />
     <Compile Include="NoAffiliation.cs" />
+    <Compile Include="Paycheck.cs" />
+    <Compile Include="PaydayTransaction.cs" />
     <Compile Include="PaymentClassification.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="PaymentSchedule.cs" />

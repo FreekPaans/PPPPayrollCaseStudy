@@ -38,5 +38,9 @@ namespace PayrollCaseStudy.Domain {
         internal Employee GetUnionMember(int memberId) {
             return GetEmployee(_unionMemberMap[memberId]);
         }
+
+        internal ICollection<int> GetAllEmployeeIds() {
+            return _itsEmployees.Keys;
+        }
     }
 }

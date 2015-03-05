@@ -31,5 +31,9 @@ namespace PayrollCaseStudy.Domain {
         internal void AddSalesReceipt(SalesReceipt salesReceipt) {
             _salesReceipts.Add(salesReceipt);
         }
+
+        public decimal CalculatePay(Paycheck paycheck) {
+            throw new NotImplementedException();
+        }
     }
 }

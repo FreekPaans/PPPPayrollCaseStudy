@@ -20,5 +20,9 @@ namespace PayrollCaseStudy.Domain {
         public ServiceCharge GetServiceCharge(int forDate) {
             return _charges.FirstOrDefault(_=>_.Date == forDate);
         }
+
+        public decimal CalculateDeductions(Paycheck paycheck) {
+            throw new NotImplementedException();
+        }
     }
 }
