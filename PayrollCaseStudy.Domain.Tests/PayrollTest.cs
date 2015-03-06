@@ -261,6 +261,25 @@ namespace PayrollCaseStudy.Domain.Tests {
             ValidateHourlyPaycheck(paydayTx,empId,payDate,(8+1.5M)*15.25M);
         }
 
+        [TestMethod]
+        public void TestPaySingleHourlyEmployeeOnWrongDate() {
+            int empId = 2;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
+            addTx.Execute();
+            var payDate = new Date(11,8,2001);
+            Assert.AreEqual(DayOfWeek.Thursday,payDate.DayOfWeek);
+
+            var timecardTx = new TimeCardTransaction(payDate,9.0M,empId);
+            timecardTx.Execute();
+
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            Assert.IsNull(paycheck, "paycheck is available when payday is calculated on a thursday, should only be on friday");
+        }
+
         private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
