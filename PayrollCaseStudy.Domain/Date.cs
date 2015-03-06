@@ -29,5 +29,36 @@ namespace PayrollCaseStudy.Domain {
         public override string ToString() {
             return _date.ToShortDateString();
         }
+
+        public DayOfWeek DayOfWeek {
+            get {
+                return _date.DayOfWeek;
+            }
+        }
+
+
+        public override bool Equals(object obj) {
+            if(obj == null) {
+                return false;
+            }
+
+            if(!(obj is Date)) {
+                return false;
+            }
+
+            return _date== ((Date)obj)._date;
+        }
+
+        public override int GetHashCode() {
+            return _date.GetHashCode();
+        }
+
+        public static bool operator ==(Date d1,Date d2) {
+            return d1.Equals(d2);
+        }
+
+        public static bool operator !=(Date d1,Date d2) {
+            return !d1.Equals(d2);
+        }
     }
 }

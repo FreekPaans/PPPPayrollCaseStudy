@@ -5,9 +5,9 @@ using System.Text;
 
 namespace PayrollCaseStudy.Domain {
     public class TimeCard {
-        private int _forDate;
+        private Date _forDate;
 
-        public int Date {
+        public Date Date {
             get { return _forDate; }
         }
         private decimal _hours;
@@ -16,7 +16,7 @@ namespace PayrollCaseStudy.Domain {
             get { return _hours; }
         }
 
-        public TimeCard(int forDate,decimal hours) {
+        public TimeCard(Date forDate,decimal hours) {
             _forDate = forDate;
             _hours = hours;
         }

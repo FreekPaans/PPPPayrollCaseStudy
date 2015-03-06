@@ -8,9 +8,9 @@ namespace PayrollCaseStudy.Domain {
     public class TimeCardTransaction {
         private int _empId;
         private decimal _hours;
-        private int _forDate;
+        private Date _forDate;
 
-        public TimeCardTransaction(int date,decimal hours,int empId) {
+        public TimeCardTransaction(Date date,decimal hours,int empId) {
             _forDate = date;
             _hours = hours;
             _empId = empId;

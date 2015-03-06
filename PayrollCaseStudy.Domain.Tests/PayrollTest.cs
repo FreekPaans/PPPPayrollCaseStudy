@@ -114,7 +114,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             addTx.Execute();
 
             
-            var timeCardTransaction = new TimeCardTransaction(20011031, 8.0M, empId);
+            var timeCardTransaction = new TimeCardTransaction(new Date(10,31,2001), 8.0M, empId);
             timeCardTransaction.Execute();
 
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
@@ -123,7 +123,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             PaymentClassification classification = employee.GetClassification();
             var hourlyClassification = (HourlyClassification)classification;
 
-            var timeCard = hourlyClassification.GetTimeCard(20011031);
+            var timeCard = hourlyClassification.GetTimeCard(new Date(10,31,2001));
             Assert.IsNotNull(timeCard);
             Assert.AreEqual(8.0M, timeCard.Hours);
         }
@@ -211,6 +211,48 @@ namespace PayrollCaseStudy.Domain.Tests {
             var paycheck = paydayTx.GetPaycheck(empId);
 
             Assert.IsNull(paycheck);
+        }
+
+        [TestMethod]
+        public void TestPaySingleHourlyEmployeeNoTimeCards(){
+            int empId = 2;
+
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
+            addTx.Execute();
+            var payDate = new Date(11,9,2001);
+            Assert.AreEqual(DayOfWeek.Friday,payDate.DayOfWeek);
+
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+
+            ValidateHourlyPaycheck(paydayTx,empId,payDate,0.0M);
+        }
+
+        [TestMethod]
+
+        public void TestPaySingleHourlyEmployeeOneTimeCard() {
+            int empId = 2;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
+            addTx.Execute();
+            var payDate = new Date(11,9,2001);
+            Assert.AreEqual(DayOfWeek.Friday,payDate.DayOfWeek);
+            var timecardTx = new TimeCardTransaction(payDate,2.0M,empId);
+            timecardTx.Execute();
+
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+            ValidateHourlyPaycheck(paydayTx,empId,payDate,30.5M);
+        }
+
+        private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
+            var paycheck = paydayTx.GetPaycheck(empId);
+            Assert.IsNotNull(paycheck);
+            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(pay,paycheck.GrossPay);
+            Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
+            Assert.AreEqual(0.0M, paycheck.Deductions);
+            Assert.AreEqual(pay,paycheck.NetPay);
         }
     }
 }

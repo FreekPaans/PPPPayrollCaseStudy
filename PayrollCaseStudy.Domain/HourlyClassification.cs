@@ -19,7 +19,7 @@ namespace PayrollCaseStudy.Domain {
         }
 
 
-        public TimeCard GetTimeCard(int date) {
+        public TimeCard GetTimeCard(Date date) {
             return _timeCards.Single(_=>_.Date==date);
         }
 
@@ -28,7 +28,7 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public decimal CalculatePay(Paycheck paycheck) {
-            throw new NotImplementedException();
+            return _timeCards.Sum(_=>_.Hours) * _hourlyRate;
         }
     }
 }
