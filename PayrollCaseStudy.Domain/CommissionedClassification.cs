@@ -24,7 +24,7 @@ namespace PayrollCaseStudy.Domain {
             _salesReceipts = new List<SalesReceipt>();
         }
 
-        public ICollection<SalesReceipt> GetSalesReceiptsForDate(int forDate) {
+        public ICollection<SalesReceipt> GetSalesReceiptsForDate(Date forDate) {
             return _salesReceipts.Where(_=>_.Date == forDate).ToList();
         }
 
@@ -33,7 +33,7 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public decimal CalculatePay(Paycheck paycheck) {
-            return _salary;
+            return _salary + _salesReceipts.Sum(_=>_.Amount * _commissionRate);
         }
     }
 }

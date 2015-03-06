@@ -134,7 +134,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddCommissionedEmployee(empId,"Bill", "Home", 1000M,3.2M);
             addTx.Execute();
 
-            var salesReceiptTX = new SalesReceiptTransaction(1000M, 20011031, empId);
+            var salesReceiptTX = new SalesReceiptTransaction(1000M, new Date(10,31,2001), empId);
 
             salesReceiptTX.Execute();
 
@@ -144,7 +144,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             PaymentClassification classification = employee.GetClassification();
             var commissionedClassification = (CommissionedClassification)classification;
 
-            var receipts = commissionedClassification.GetSalesReceiptsForDate(20011031);
+            var receipts = commissionedClassification.GetSalesReceiptsForDate(new Date(10,31,2001));
             Assert.AreEqual(1,receipts.Count, "Receipt count for date is not 1");
             var firstReceipt = receipts.First();
             Assert.AreEqual(1000M, firstReceipt.Amount);
@@ -321,7 +321,7 @@ namespace PayrollCaseStudy.Domain.Tests {
         public void TestPaySingleCommissionedEmployee() {
             int empId = 1;
 
-            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,100);
+            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,0.2M);
             addTx.Execute();
 
             var payDate = new Date(11,16,2001);
@@ -330,19 +330,17 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             var paycheck = paydayTx.GetPaycheck(empId);
 
-            Assert.IsNotNull(paycheck);
-            Assert.AreEqual(payDate,paycheck.PayDate);
-            Assert.AreEqual(1000M,paycheck.GrossPay);
-            Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
-            Assert.AreEqual(0M,paycheck.Deductions);
-            Assert.AreEqual(1000M, paycheck.NetPay);
+            
+            ValidateCommisionedPaycheck(paydayTx,empId,payDate,1000M);
         }
+
+        
 
         [TestMethod]
         public void TestPaySingleCommissionedEmployeeWrongDate() {
             int empId = 1;
 
-            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,100);
+            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,0.2M);
             addTx.Execute();
 
             var payDate = new Date(11,9,2001);
@@ -352,6 +350,35 @@ namespace PayrollCaseStudy.Domain.Tests {
             var paycheck = paydayTx.GetPaycheck(empId);
 
             Assert.IsNull(paycheck, "paycheck expected null because it's not a paydate");
+        }
+
+        [TestMethod]
+        public void TestPaySingleCommissionedEmployeeWithSingleSale() {
+            int empId = 1;
+
+            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,0.2M);
+            addTx.Execute();
+
+            var saleTx = new SalesReceiptTransaction(100, new Date(11,9,2001),empId);
+            saleTx.Execute();
+
+            var payDate = new Date(11,16,2001);
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            ValidateCommisionedPaycheck(paydayTx,empId,payDate,1020M);
+        }
+
+        private static void ValidateCommisionedPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
+            var paycheck = paydayTx.GetPaycheck(empId);
+            Assert.IsNotNull(paycheck);
+            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(pay,paycheck.GrossPay);
+            Assert.AreEqual("Hold",paycheck.GetField("Disposition"));
+            Assert.AreEqual(0M,paycheck.Deductions);
+            Assert.AreEqual(pay,paycheck.NetPay);
         }
 
         private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {

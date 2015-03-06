@@ -10,13 +10,13 @@ namespace PayrollCaseStudy.Domain {
         public decimal Amount {
             get { return _amount; }
         }
-        private int _forDate;
+        private Date _forDate;
 
-        public int Date {
+        public Date Date {
             get { return _forDate; }
         }
 
-        public SalesReceipt(decimal amount,int forDate) {
+        public SalesReceipt(decimal amount,Date forDate) {
             _amount = amount;
             _forDate = forDate;
         }
