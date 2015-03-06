@@ -195,5 +195,22 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.AreEqual(0M,paycheck.Deductions);
             Assert.AreEqual(1000M, paycheck.NetPay);
         }
+
+        [TestMethod]
+        public void TestPaySingleSalariedEmployeeOnWrongDate() {
+            int empId = 1;
+
+            var addTx = new AddSalariedEmployee(empId,"Bob", "Home", 1000);
+            addTx.Execute();
+
+            var payDate = new Date(11,29,2001);
+
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            Assert.IsNull(paycheck);
+        }
     }
 }

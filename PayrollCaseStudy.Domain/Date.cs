@@ -25,5 +25,9 @@ namespace PayrollCaseStudy.Domain {
                 return _date.Month;
             }
         }
+
+        public override string ToString() {
+            return _date.ToShortDateString();
+        }
     }
 }

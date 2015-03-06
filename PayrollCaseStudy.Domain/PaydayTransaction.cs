@@ -32,6 +32,9 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public Paycheck GetPaycheck(int empId) {
+            if(!_paychecks.ContainsKey(empId)) {
+                return null;
+            }
             return _paychecks[empId];
         }
     }

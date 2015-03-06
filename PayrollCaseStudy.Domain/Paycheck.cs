@@ -23,7 +23,7 @@ namespace PayrollCaseStudy.Domain {
             }
         }
 
-        public object GetField(string p) {
+        public string GetField(string fieldName) {
             return "Hold";
         }
     }
