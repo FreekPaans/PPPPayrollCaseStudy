@@ -60,5 +60,13 @@ namespace PayrollCaseStudy.Domain {
         public static bool operator !=(Date d1,Date d2) {
             return !d1.Equals(d2);
         }
+
+        public static bool operator >=(Date d1, Date d2) {
+            return d1._date >= d2._date;
+        }
+
+        public static bool operator <=(Date d1, Date d2) {
+            return d1._date <= d2._date;
+        }
     }
 }
