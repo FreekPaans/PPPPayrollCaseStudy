@@ -41,11 +41,10 @@ namespace PayrollCaseStudy.Domain {
         }
 
         private decimal CalculatePayForDay(decimal hoursForDay) {
-            if(hoursForDay<=8.0M) {
-                return hoursForDay  * _hourlyRate;
-            }
+            var overtime = Math.Max(0M,hoursForDay-8);
+            var straightTime = hoursForDay - overtime;
 
-            return hoursForDay * _hourlyRate + (0.5M * _hourlyRate * (hoursForDay - 8.0M));
+            return _hourlyRate * (straightTime  + 1.5M * overtime);
         }
     }
 }
