@@ -33,7 +33,7 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public decimal CalculatePay(Paycheck paycheck) {
-            throw new NotImplementedException();
+            return _salary;
         }
     }
 }

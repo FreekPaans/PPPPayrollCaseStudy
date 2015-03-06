@@ -68,5 +68,9 @@ namespace PayrollCaseStudy.Domain {
         public static bool operator <=(Date d1, Date d2) {
             return d1._date <= d2._date;
         }
+
+        internal int DaySince(Date date) {
+            return (int)(_date - date._date).TotalDays;
+        }
     }
 }

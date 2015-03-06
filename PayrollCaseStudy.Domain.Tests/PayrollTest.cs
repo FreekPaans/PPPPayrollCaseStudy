@@ -317,6 +317,27 @@ namespace PayrollCaseStudy.Domain.Tests {
             ValidateHourlyPaycheck(paydayTx,empId,payDate,2*15.25M);
         }
 
+        [TestMethod]
+        public void TestPaySingleCommissionedEmployee() {
+            int empId = 1;
+
+            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,100);
+            addTx.Execute();
+
+            var payDate = new Date(11,16,2001); // third friday of month
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            Assert.IsNotNull(paycheck);
+            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(1000M,paycheck.GrossPay);
+            Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
+            Assert.AreEqual(0M,paycheck.Deductions);
+            Assert.AreEqual(1000M, paycheck.NetPay);
+        }
+
         private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
