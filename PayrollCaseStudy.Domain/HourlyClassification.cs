@@ -28,7 +28,17 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public decimal CalculatePay(Paycheck paycheck) {
-            return _timeCards.Sum(_=>_.Hours) * _hourlyRate;
+            var perDay = _timeCards.GroupBy(_=>_.Date).Select(_=>new { Date = _.Key, Hours = _.Sum(x=>x.Hours)}).ToList();
+
+            return perDay.Sum(_=>CalculatePayForDay(_.Hours));
+        }
+
+        private decimal CalculatePayForDay(decimal hoursForDay) {
+            if(hoursForDay<=8.0M) {
+                return hoursForDay  * _hourlyRate;
+            }
+
+            return hoursForDay * _hourlyRate + (0.5M * _hourlyRate * (hoursForDay - 8.0M));
         }
     }
 }

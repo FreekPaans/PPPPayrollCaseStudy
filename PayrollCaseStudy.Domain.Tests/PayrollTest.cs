@@ -230,7 +230,6 @@ namespace PayrollCaseStudy.Domain.Tests {
         }
 
         [TestMethod]
-
         public void TestPaySingleHourlyEmployeeOneTimeCard() {
             int empId = 2;
             var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
@@ -243,6 +242,23 @@ namespace PayrollCaseStudy.Domain.Tests {
             var paydayTx = new PaydayTransaction(payDate);
             paydayTx.Execute();
             ValidateHourlyPaycheck(paydayTx,empId,payDate,30.5M);
+        }
+
+        [TestMethod]
+        public void TestPaySingleHourlyEmployeeOvertimeOneTimeCard() {
+            int empId = 2;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
+            addTx.Execute();
+            var payDate = new Date(11,9,2001);
+            Assert.AreEqual(DayOfWeek.Friday,payDate.DayOfWeek);
+
+            var timecardTx = new TimeCardTransaction(payDate,9.0M,empId);
+            timecardTx.Execute();
+
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            ValidateHourlyPaycheck(paydayTx,empId,payDate,(8+1.5M)*15.25M);
         }
 
         private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
