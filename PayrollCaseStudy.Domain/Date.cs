@@ -80,5 +80,9 @@ namespace PayrollCaseStudy.Domain {
         internal int DaySince(Date date) {
             return (int)(_date - date._date).TotalDays;
         }
+
+        internal Date AddMonth(int months) {
+            return new Date(_date.AddMonths(months));
+        }
     }
 }

@@ -27,18 +27,13 @@ namespace PayrollCaseStudy.Domain {
             _timeCards.Add(timeCard);
         }
 
-        public decimal CalculatePay(Paycheck paycheck) {
-            var perDay = _timeCards.Where(_=>IsInPayPeriod(_, paycheck.PayDate)).GroupBy(_=>_.Date).Select(_=>new { Date = _.Key, Hours = _.Sum(x=>x.Hours)}).ToList();
+        public override decimal CalculatePay(Paycheck paycheck) {
+            var perDay = _timeCards.Where(_=>IsInPayPeriod(_.Date, paycheck)).GroupBy(_=>_.Date).Select(_=>new { Date = _.Key, Hours = _.Sum(x=>x.Hours)}).ToList();
 
             return perDay.Sum(_=>CalculatePayForDay(_.Hours));
         }
 
-        private bool IsInPayPeriod(TimeCard tc,Date payPeriod) {
-            var payPeriodEndDate = payPeriod;
-            var payPeriodStartDate = payPeriod.AddDays(-5);
-
-            return tc.Date>=payPeriodStartDate && tc.Date<=payPeriodEndDate;
-        }
+      
 
         private decimal CalculatePayForDay(decimal hoursForDay) {
             var overtime = Math.Max(0M,hoursForDay-8);

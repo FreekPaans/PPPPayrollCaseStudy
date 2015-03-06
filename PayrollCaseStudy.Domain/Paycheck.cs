@@ -5,10 +5,15 @@ using System.Text;
 
 namespace PayrollCaseStudy.Domain {
     public class Paycheck {
-        private Date _forPayDate;
+        private Date _endDate;
+        private Date _startdate;
 
-        public Paycheck(Date forPayDate) {
-            _forPayDate = forPayDate;
+        
+
+
+        public Paycheck(Date payPeriodStart,Date payPeriodEnd) {
+            _endDate = payPeriodEnd;
+            _startdate = payPeriodStart;
         }
 
         public decimal Deductions { get; set; }
@@ -17,11 +22,15 @@ namespace PayrollCaseStudy.Domain {
 
         public decimal GrossPay { get; set; }
 
-        public Date PayDate {
+        public Date PayPeriodEndDate {
             get {
-                return _forPayDate;
+                return _endDate;
             }
         }
+        public Date PayPeriodStartDate {
+            get { return _startdate; }
+        }
+
 
         public string GetField(string fieldName) {
             return "Hold";

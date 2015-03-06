@@ -189,7 +189,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             var paycheck = paydayTx.GetPaycheck(empId);
 
             Assert.IsNotNull(paycheck);
-            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(payDate,paycheck.PayPeriodEndDate);
             Assert.AreEqual(1000M,paycheck.GrossPay);
             Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
             Assert.AreEqual(0M,paycheck.Deductions);
@@ -416,7 +416,7 @@ namespace PayrollCaseStudy.Domain.Tests {
         private static void ValidateCommisionedPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
-            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(payDate,paycheck.PayPeriodEndDate);
             Assert.AreEqual(pay,paycheck.GrossPay);
             Assert.AreEqual("Hold",paycheck.GetField("Disposition"));
             Assert.AreEqual(0M,paycheck.Deductions);
@@ -426,7 +426,7 @@ namespace PayrollCaseStudy.Domain.Tests {
         private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
-            Assert.AreEqual(payDate,paycheck.PayDate);
+            Assert.AreEqual(payDate,paycheck.PayPeriodEndDate);
             Assert.AreEqual(pay,paycheck.GrossPay);
             Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
             Assert.AreEqual(0.0M, paycheck.Deductions);

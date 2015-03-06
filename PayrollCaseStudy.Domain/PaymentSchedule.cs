@@ -6,5 +6,7 @@ using System.Text;
 namespace PayrollCaseStudy.Domain {
     public interface PaymentSchedule {
         bool IsPayDate(Date date);
+
+        Date GetPayPeriodStartDate(Date payPeriod);
     }
 }

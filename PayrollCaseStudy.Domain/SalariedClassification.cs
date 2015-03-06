@@ -15,7 +15,7 @@ namespace PayrollCaseStudy.Domain {
             _itsSalary = itsSalary;
         }
 
-        public decimal CalculatePay(Paycheck paycheck) {
+        public override decimal CalculatePay(Paycheck paycheck) {
             return _itsSalary;
         }
     }

@@ -18,5 +18,10 @@ namespace PayrollCaseStudy.Domain {
             }
             return false;
         }
+
+
+        public Date GetPayPeriodStartDate(Date payPeriod) {
+            return payPeriod.AddDays(-13);
+        }
     }
 }

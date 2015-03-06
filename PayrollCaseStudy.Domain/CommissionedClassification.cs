@@ -32,14 +32,8 @@ namespace PayrollCaseStudy.Domain {
             _salesReceipts.Add(salesReceipt);
         }
 
-        public decimal CalculatePay(Paycheck paycheck) {
-            return _salary + _salesReceipts.Where(_=>IsInPayPeriod(_.Date, paycheck.PayDate)).Sum(_=>_.Amount * _commissionRate);
-        }
-
-        private bool IsInPayPeriod(Date date,Date payPeriod) {
-            var startPayPeriod = payPeriod.AddDays(-14);
-
-            return date > startPayPeriod && date<=payPeriod;
+        public override decimal CalculatePay(Paycheck paycheck) {
+            return _salary + _salesReceipts.Where(_=>IsInPayPeriod(_.Date, paycheck)).Sum(_=>_.Amount * _commissionRate);
         }
     }
 }

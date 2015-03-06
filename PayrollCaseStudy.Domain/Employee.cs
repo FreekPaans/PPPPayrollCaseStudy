@@ -64,5 +64,9 @@ namespace PayrollCaseStudy.Domain {
             paycheck.Deductions = deductions;
             Method.Pay(paycheck);
         }
+
+        internal Date GetPayPeriodStartDate(Date payPeriod) {
+            return Schedule.GetPayPeriodStartDate(payPeriod);
+        }
     }
 }

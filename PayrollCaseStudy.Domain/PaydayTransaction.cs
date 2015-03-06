@@ -24,7 +24,7 @@ namespace PayrollCaseStudy.Domain {
                 if(!employee.IsPayDate(_forPayDate)) {
                     continue;
                 }
-                var paycheck = new Paycheck(_forPayDate);
+                var paycheck = new Paycheck(employee.GetPayPeriodStartDate(_forPayDate), _forPayDate);
                 _paychecks[empId] = paycheck;
                 employee.Payday(paycheck);
 
