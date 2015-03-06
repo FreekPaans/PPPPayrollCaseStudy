@@ -393,6 +393,26 @@ namespace PayrollCaseStudy.Domain.Tests {
             ValidateCommisionedPaycheck(paydayTx,empId,payDate,1120M);
         }
 
+        [TestMethod]
+        public void TestPaySingleCommissionedEmployeeNotForThisPayperiod() {
+            int empId = 1;
+
+            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,0.2M);
+            addTx.Execute();
+
+            var saleTx = new SalesReceiptTransaction(100, new Date(11,2,2001),empId);
+            saleTx.Execute();
+
+
+            var payDate = new Date(11,16,2001);
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            ValidateCommisionedPaycheck(paydayTx,empId,payDate,1000M);
+        }
+
         private static void ValidateCommisionedPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
