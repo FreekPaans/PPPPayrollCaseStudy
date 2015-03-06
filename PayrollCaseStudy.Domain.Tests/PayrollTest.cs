@@ -324,7 +324,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,100);
             addTx.Execute();
 
-            var payDate = new Date(11,16,2001); // third friday of month
+            var payDate = new Date(11,16,2001);
             var paydayTx = new PaydayTransaction(payDate);
             paydayTx.Execute();
 
@@ -336,6 +336,22 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
             Assert.AreEqual(0M,paycheck.Deductions);
             Assert.AreEqual(1000M, paycheck.NetPay);
+        }
+
+        [TestMethod]
+        public void TestPaySingleCommissionedEmployeeWrongDate() {
+            int empId = 1;
+
+            var addTx = new AddCommissionedEmployee(empId,"Bob", "Home", 1000,100);
+            addTx.Execute();
+
+            var payDate = new Date(11,9,2001);
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
+
+            var paycheck = paydayTx.GetPaycheck(empId);
+
+            Assert.IsNull(paycheck, "paycheck expected null because it's not a paydate");
         }
 
         private void ValidateHourlyPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
