@@ -506,6 +506,24 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.IsInstanceOfType(schedule, typeof(BiweeklySchedule),"schedule is not biweekly");
         }
 
+        [TestMethod]
+        public void TestChangeDirectTransaction() {
+            var empId = 1;
+            var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
+            addTx.Execute();
+            
+            var changeHourlyTx = new ChangeDirectTransaction(empId);
+            changeHourlyTx.Execute();
+            
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+
+            var method = employee.GetMethod();
+
+            Assert.IsInstanceOfType(method, typeof(DirectMethod),"employee does not have correct payment method");
+        }
+
         //[TestMethod]
         //public void TestSalariedUnionMemberDues() {
         //    int empId = 1;

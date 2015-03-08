@@ -47,13 +47,16 @@
     <Compile Include="BiweeklySchedule.cs" />
     <Compile Include="ChangeClassificationTransaction.cs" />
     <Compile Include="ChangeCommissionedTransaction.cs" />
+    <Compile Include="ChangeDirectTransaction.cs" />
     <Compile Include="ChangeEmployeeTransaction.cs" />
     <Compile Include="ChangeHourlyTransaction.cs" />
+    <Compile Include="ChangeMethodTransaction.cs" />
     <Compile Include="ChangeNameTransaction.cs" />
     <Compile Include="ChangeSalariedTransaction.cs" />
     <Compile Include="CommissionedClassification.cs" />
     <Compile Include="Date.cs" />
     <Compile Include="DeleteEmployeeTransaction.cs" />
+    <Compile Include="DirectMethod.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="HoldMethod.cs" />
     <Compile Include="HourlyClassification.cs" />
