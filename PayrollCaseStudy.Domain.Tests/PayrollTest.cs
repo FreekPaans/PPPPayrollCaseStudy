@@ -413,6 +413,40 @@ namespace PayrollCaseStudy.Domain.Tests {
             ValidateCommisionedPaycheck(paydayTx,empId,payDate,1000M);
         }
 
+        [TestMethod]
+        public void TestChangeNameTransaction() {
+            var empId = 1;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
+            addTx.Execute();
+            var changeNameTx = new ChangeNameTransaction(empId,"Bob");
+            changeNameTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+            Assert.AreEqual("Bob", employee.Name);
+        }
+
+        //[TestMethod]
+        //public void TestSalariedUnionMemberDues() {
+        //    int empId = 1;
+
+        //    var addTx = new AddSalariedEmployee(empId,"Bob", "Home", 1000);
+        //    addTx.Execute();
+
+        //    var membedId = 7734;
+        //    var changeTx = new ChangeMemberTransaction
+
+
+        //    var payDate = new Date(11,16,2001);
+        //    var paydayTx = new PaydayTransaction(payDate);
+        //    paydayTx.Execute();
+
+        //    var paycheck = paydayTx.GetPaycheck(empId);
+
+        //    ValidateCommisionedPaycheck(paydayTx,empId,payDate,1000M);
+        //}
+
         private static void ValidateCommisionedPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
