@@ -620,25 +620,35 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.IsNull(member,"Membership was not removed from database");
         }
 
-        //[TestMethod]
-        //public void TestSalariedUnionMemberDues() {
-        //    int empId = 1;
+        [TestMethod]
+        public void TestSalariedUnionMemberDues() {
+            int empId = 1;
 
-        //    var addTx = new AddSalariedEmployee(empId,"Bob", "Home", 1000);
-        //    addTx.Execute();
+            var addTx = new AddSalariedEmployee(empId,"Bob", "Home", 1000);
+            addTx.Execute();
 
-        //    var membedId = 7734;
-        //    var changeTx = new ChangeMemberTransaction
+            var memberId = 7734;
+            var changeTx = new ChangeMemberTransaction(empId,memberId,9.42M);
+            changeTx.Execute();
 
+            var payDate = new Date(11,30,2001);
+            var paydayTx = new PaydayTransaction(payDate);
+            paydayTx.Execute();
 
-        //    var payDate = new Date(11,16,2001);
-        //    var paydayTx = new PaydayTransaction(payDate);
-        //    paydayTx.Execute();
+            var paycheck = paydayTx.GetPaycheck(empId);
 
-        //    var paycheck = paydayTx.GetPaycheck(empId);
+            ValidatePaycheck(paydayTx,empId,payDate, 1000M, 5 * 9.42M);
+        }
 
-        //    ValidateCommisionedPaycheck(paydayTx,empId,payDate,1000M);
-        //}
+        private void ValidatePaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal grosspay, decimal deductions) {
+            var paycheck = paydayTx.GetPaycheck(empId);
+            Assert.IsNotNull(paycheck);
+            Assert.AreEqual(payDate,paycheck.PayPeriodEndDate);
+            Assert.AreEqual(grosspay,paycheck.GrossPay);
+            Assert.AreEqual("Hold",paycheck.GetField("Disposition"));
+            Assert.AreEqual(deductions,paycheck.Deductions);
+            Assert.AreEqual(grosspay - deductions,paycheck.NetPay);
+        }
 
         private static void ValidateCommisionedPaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal pay) {
             var paycheck = paydayTx.GetPaycheck(empId);

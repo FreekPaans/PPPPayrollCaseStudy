@@ -32,11 +32,20 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public decimal CalculateDeductions(Paycheck paycheck) {
-            throw new NotImplementedException();
+            var fridays = NumberOfFridaysInPayPeriod(paycheck.PayPeriodStartDate,paycheck.PayPeriodEndDate);
+
+            return fridays * _weeklyDues;
         }
 
+        private int NumberOfFridaysInPayPeriod(Date startDate,Date endDate) {
+            var res = 0;
+            for(var i = startDate;i<=endDate;i = i.AddDays(1)) {
+                if(i.DayOfWeek == DayOfWeek.Friday) {
+                    res++;
+                }
+            }
 
-
-        
+            return res;
+        }
     }
 }
