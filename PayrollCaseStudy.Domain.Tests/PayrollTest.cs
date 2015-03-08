@@ -459,8 +459,8 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddCommissionedEmployee(empId,"Lance","Home",2500,3.2M);
             addTx.Execute();
             
-            var changeHourlyTx = new ChangeSalariedTransaction(empId,2000M);
-            changeHourlyTx.Execute();
+            var changeSalariedTx = new ChangeSalariedTransaction(empId,2000M);
+            changeSalariedTx.Execute();
             
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
 
@@ -485,8 +485,8 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
             addTx.Execute();
             
-            var changeHourlyTx = new ChangeCommissionedTransaction(empId,2000M,0.2M);
-            changeHourlyTx.Execute();
+            var changeCommisionedTx = new ChangeCommissionedTransaction(empId,2000M,0.2M);
+            changeCommisionedTx.Execute();
             
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
 
@@ -512,8 +512,8 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
             addTx.Execute();
             
-            var changeHourlyTx = new ChangeDirectTransaction(empId,"Citigroup", "12345678");
-            changeHourlyTx.Execute();
+            var changeDirectTx = new ChangeDirectTransaction(empId,"Citigroup", "12345678");
+            changeDirectTx.Execute();
             
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
 
@@ -535,8 +535,8 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
             addTx.Execute();
             
-            var changeHourlyTx = new ChangeMailTransaction(empId,"Home");
-            changeHourlyTx.Execute();
+            var changeMailTx = new ChangeMailTransaction(empId,"Home");
+            changeMailTx.Execute();
             
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
 
@@ -549,6 +549,27 @@ namespace PayrollCaseStudy.Domain.Tests {
             var mailMethod = (MailMethod)method;
 
             Assert.AreEqual("Home", mailMethod.Address);
+        }
+
+        [TestMethod]
+        public void TestChangeHoldTransaction() {
+            var empId = 1;
+            var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
+            addTx.Execute();
+            
+            var changeMailTx = new ChangeMailTransaction(empId,"Home");
+            changeMailTx.Execute();
+
+            var changeHoldTx = new ChangeHoldTransaction(empId);
+            changeHoldTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+
+            var method = employee.GetMethod();
+
+            Assert.IsInstanceOfType(method, typeof(HoldMethod),"employee does not have correct payment method");
         }
 
         //[TestMethod]
