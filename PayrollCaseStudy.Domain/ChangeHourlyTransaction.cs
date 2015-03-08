@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
-    public class ChangeHourlyTransaction : ChangeEmployeeTransaction{
+    public class ChangeHourlyTransaction : ChangeClassificationTransaction{
         private decimal _hourlyRate;
 
         public ChangeHourlyTransaction(int empId,decimal p) : base(empId){
             _hourlyRate = p;
         }
 
-        protected override void Change(Employee e) {
-            e.Classification = new HourlyClassification(_hourlyRate);
-            e.Schedule = new WeeklySchedule();
+        protected override PaymentClassification GetClassification() {
+            return new HourlyClassification(_hourlyRate);
+        }
+
+        protected override PaymentSchedule GetSchedule() {
+            return new WeeklySchedule();
         }
     }
 }
