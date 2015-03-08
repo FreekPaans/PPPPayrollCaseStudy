@@ -529,6 +529,28 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.AreEqual("12345678", directMethod.Account);
         }
 
+        [TestMethod]
+        public void TestChangeMailTransaction() {
+            var empId = 1;
+            var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
+            addTx.Execute();
+            
+            var changeHourlyTx = new ChangeMailTransaction(empId,"Home");
+            changeHourlyTx.Execute();
+            
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+
+            var method = employee.GetMethod();
+
+            Assert.IsInstanceOfType(method, typeof(MailMethod),"employee does not have correct payment method");
+
+            var mailMethod = (MailMethod)method;
+
+            Assert.AreEqual("Home", mailMethod.Address);
+        }
+
         //[TestMethod]
         //public void TestSalariedUnionMemberDues() {
         //    int empId = 1;
