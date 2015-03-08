@@ -572,6 +572,30 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.IsInstanceOfType(method, typeof(HoldMethod),"employee does not have correct payment method");
         }
 
+        [TestMethod]
+        public void TestChangeMemberTransaction() {
+            int empId = 2;
+            int memberId = 7734;
+
+            var addTx = new AddHourlyEmployee(empId,"Bill", "Home", 15.25M);
+            addTx.Execute();
+            var changeMemberTx = new ChangeMemberTransaction(empId,memberId,99.42M);
+            changeMemberTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+            Assert.IsNotNull(employee, "Employee not found");
+
+            var affiliation = employee.Affiliation;
+
+            Assert.IsInstanceOfType(affiliation,typeof(UnionAffiliation), "Not union affiliation");
+            var unionAffiliation = (UnionAffiliation)affiliation;
+            Assert.AreEqual(99.42M, unionAffiliation.Dues);
+
+            var member = PayrollDatabase.Instance.GetUnionMember(memberId);
+            Assert.IsNotNull(member,"Member not found");
+            Assert.AreEqual(employee,member);
+        }
+
         //[TestMethod]
         //public void TestSalariedUnionMemberDues() {
         //    int empId = 1;

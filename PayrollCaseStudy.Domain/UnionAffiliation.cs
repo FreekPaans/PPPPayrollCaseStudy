@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 namespace PayrollCaseStudy.Domain {
     public class UnionAffiliation  : Affiliation{
         private decimal _weeklyDues;
+
+        public decimal Dues {
+            get { return _weeklyDues; }
+        }
         private List<ServiceCharge> _charges = new List<ServiceCharge>();
 
         public UnionAffiliation(decimal weeklyDues) {
@@ -24,5 +28,7 @@ namespace PayrollCaseStudy.Domain {
         public decimal CalculateDeductions(Paycheck paycheck) {
             throw new NotImplementedException();
         }
+
+        
     }
 }
