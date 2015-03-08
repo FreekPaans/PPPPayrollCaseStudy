@@ -8,7 +8,7 @@ namespace PayrollCaseStudy.Domain {
         public abstract decimal CalculatePay(Paycheck paycheck);
             
         public bool IsInPayPeriod(Date theDate, Paycheck payCheck) {
-            return theDate>=payCheck.PayPeriodStartDate && theDate<=payCheck.PayPeriodEndDate;
+            return Date.IsBetween(theDate,payCheck.PayPeriodStartDate,payCheck.PayPeriodEndDate);
         }
     }
 }
