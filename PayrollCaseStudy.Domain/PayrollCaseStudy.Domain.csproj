@@ -57,6 +57,7 @@
     <Compile Include="ChangeMethodTransaction.cs" />
     <Compile Include="ChangeNameTransaction.cs" />
     <Compile Include="ChangeSalariedTransaction.cs" />
+    <Compile Include="ChangeUnaffiliatedTransaction.cs" />
     <Compile Include="CommissionedClassification.cs" />
     <Compile Include="Date.cs" />
     <Compile Include="DeleteEmployeeTransaction.cs" />

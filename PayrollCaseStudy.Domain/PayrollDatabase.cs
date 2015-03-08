@@ -36,6 +36,9 @@ namespace PayrollCaseStudy.Domain {
         }
 
         public Employee GetUnionMember(int memberId) {
+            if(!_unionMemberMap.ContainsKey(memberId)) {
+                return null;
+            }
             return GetEmployee(_unionMemberMap[memberId]);
         }
 
@@ -43,5 +46,9 @@ namespace PayrollCaseStudy.Domain {
             return _itsEmployees.Keys;
         }
 
+
+        internal void RemoveUnionMember(int memberId) {
+            _unionMemberMap.Remove(memberId);
+        }
     }
 }

@@ -153,17 +153,16 @@ namespace PayrollCaseStudy.Domain.Tests {
         [TestMethod]
         public void TestAddServiceCharge() {
             int empId = 2;
+            int memberId = 7734;
             var addTx = new AddHourlyEmployee(empId,"Bill", "Home", 15.25M);
             addTx.Execute();
 
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
 
-            var unionAffiliation = new UnionAffiliation(12.5M);
+            var unionAffiliation = new UnionAffiliation(memberId,12.5M);
 
             employee.Affiliation = unionAffiliation;
 
-            int memberId = 86;
-            
             PayrollDatabase.Instance.AddUnionMember(memberId,employee);
 
             var serviceChargeTransaction = new ServiceChargeTransaction(memberId, 20011101,12.95M);
@@ -594,6 +593,31 @@ namespace PayrollCaseStudy.Domain.Tests {
             var member = PayrollDatabase.Instance.GetUnionMember(memberId);
             Assert.IsNotNull(member,"Member not found");
             Assert.AreEqual(employee,member);
+        }
+
+        [TestMethod]
+        public void TestUnaffiliatedTransaction() {
+            int empId = 2;
+            int memberId = 7734;
+
+            var addTx = new AddHourlyEmployee(empId,"Bill", "Home", 15.25M);
+            addTx.Execute();
+            var changeMemberTx = new ChangeMemberTransaction(empId,memberId,99.42M);
+            changeMemberTx.Execute();
+
+
+            var changeUnaffiliatedTx = new ChangeUnaffiliatedTransaction(empId);
+            changeUnaffiliatedTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+            Assert.IsNotNull(employee, "Employee not found");
+
+            var affiliation = employee.Affiliation;
+
+            Assert.IsInstanceOfType(affiliation,typeof(NoAffiliation), "Has a union affiliation");
+            
+            var member = PayrollDatabase.Instance.GetUnionMember(memberId);
+            Assert.IsNull(member,"Membership was not removed from database");
         }
 
         //[TestMethod]

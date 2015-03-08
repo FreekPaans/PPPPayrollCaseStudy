@@ -15,8 +15,8 @@ namespace PayrollCaseStudy.Domain {
 
 
         protected override void Change(Employee e) {
-            e.Affiliation = GetAffiliation();
             RecordMembership(e);
+            e.Affiliation = GetAffiliation();
         }
     }
 }

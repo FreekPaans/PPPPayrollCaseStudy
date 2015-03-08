@@ -18,7 +18,7 @@ namespace PayrollCaseStudy.Domain {
 
 
         protected override Affiliation GetAffiliation() {
-            return new UnionAffiliation(_weeklyDues);
+            return new UnionAffiliation(_memberId,_weeklyDues);
         }
 
         protected override void RecordMembership(Employee e) {

@@ -12,9 +12,15 @@ namespace PayrollCaseStudy.Domain {
             get { return _weeklyDues; }
         }
         private List<ServiceCharge> _charges = new List<ServiceCharge>();
+        private int _memberId;
 
-        public UnionAffiliation(decimal weeklyDues) {
+        public int MemberId {
+            get { return _memberId; }
+        }
+
+        public UnionAffiliation(int memberId, decimal weeklyDues) {
             _weeklyDues = weeklyDues;
+            _memberId = memberId;
         }
 
         internal void AddServiceCharge(int forDate,decimal charge) {
@@ -28,6 +34,8 @@ namespace PayrollCaseStudy.Domain {
         public decimal CalculateDeductions(Paycheck paycheck) {
             throw new NotImplementedException();
         }
+
+
 
         
     }
