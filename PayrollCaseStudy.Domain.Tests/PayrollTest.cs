@@ -427,6 +427,33 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.AreEqual("Bob", employee.Name);
         }
 
+        [TestMethod]
+        public void TestChangeHourlyTransaction() {
+            var empId = 1;
+            var addTx = new AddCommissionedEmployee(empId,"Lance","Home",2500,3.2M);
+            addTx.Execute();
+            
+            var changeHourlyTx = new ChangeHourlyTransaction(empId,27.25M);
+            changeHourlyTx.Execute();
+            
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+
+            var classification = employee.GetClassification();
+
+            Assert.IsInstanceOfType(classification, typeof(HourlyClassification),"employee does not have hourly classification");
+
+            var hourlyClassification = (HourlyClassification)classification;
+
+            Assert.AreEqual(27.25M,hourlyClassification.HourlyRate);
+
+            var schedule = employee.GetSchedule();
+
+
+            Assert.IsInstanceOfType(schedule, typeof(WeeklySchedule),"schedule is not weekly");
+        }
+
         //[TestMethod]
         //public void TestSalariedUnionMemberDues() {
         //    int empId = 1;
