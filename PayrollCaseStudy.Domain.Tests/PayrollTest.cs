@@ -450,8 +450,33 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             var schedule = employee.GetSchedule();
 
-
             Assert.IsInstanceOfType(schedule, typeof(WeeklySchedule),"schedule is not weekly");
+        }
+
+        [TestMethod]
+        public void TestChangeSalariedTransaction() {
+            var empId = 1;
+            var addTx = new AddCommissionedEmployee(empId,"Lance","Home",2500,3.2M);
+            addTx.Execute();
+            
+            var changeHourlyTx = new ChangeSalariedTransaction(empId,2000M);
+            changeHourlyTx.Execute();
+            
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+
+            var classification = employee.GetClassification();
+
+            Assert.IsInstanceOfType(classification, typeof(SalariedClassification),"employee does not have salaried classification");
+
+            var salariedClassification = (SalariedClassification)classification;
+
+            Assert.AreEqual(2000M,salariedClassification.Salary);
+
+            var schedule = employee.GetSchedule();
+
+            Assert.IsInstanceOfType(schedule, typeof(MonthlySchedule),"schedule is not monthly");
         }
 
         //[TestMethod]

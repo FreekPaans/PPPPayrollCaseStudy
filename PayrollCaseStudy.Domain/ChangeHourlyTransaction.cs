@@ -8,8 +8,8 @@ namespace PayrollCaseStudy.Domain {
     public class ChangeHourlyTransaction : ChangeClassificationTransaction{
         private decimal _hourlyRate;
 
-        public ChangeHourlyTransaction(int empId,decimal p) : base(empId){
-            _hourlyRate = p;
+        public ChangeHourlyTransaction(int empId,decimal hourlyRate) : base(empId){
+            _hourlyRate = hourlyRate;
         }
 
         protected override PaymentClassification GetClassification() {
