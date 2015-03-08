@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
     public class ChangeDirectTransaction : ChangeMethodTransaction{
-        public ChangeDirectTransaction(int empId)  :base(empId){
+        private string _account;
+        private string _bank;
+        
+        public ChangeDirectTransaction(int empId,string bank,string account) :base(empId) {
+            _bank = bank;
+            _account =  account;
         }
 
         protected override PaymentMethod GetMethod() {
-            return new DirectMethod();
+            return new DirectMethod(_account,_bank);
         }
     }
 }

@@ -512,7 +512,7 @@ namespace PayrollCaseStudy.Domain.Tests {
             var addTx = new AddSalariedEmployee(empId,"Lance","Home",2500);
             addTx.Execute();
             
-            var changeHourlyTx = new ChangeDirectTransaction(empId);
+            var changeHourlyTx = new ChangeDirectTransaction(empId,"Citigroup", "12345678");
             changeHourlyTx.Execute();
             
             var employee = PayrollDatabase.Instance.GetEmployee(empId);
@@ -522,6 +522,11 @@ namespace PayrollCaseStudy.Domain.Tests {
             var method = employee.GetMethod();
 
             Assert.IsInstanceOfType(method, typeof(DirectMethod),"employee does not have correct payment method");
+
+            var directMethod = (DirectMethod)method;
+
+            Assert.AreEqual("Citigroup", directMethod.Bank);
+            Assert.AreEqual("12345678", directMethod.Account);
         }
 
         //[TestMethod]
