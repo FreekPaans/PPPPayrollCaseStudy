@@ -84,5 +84,9 @@ namespace PayrollCaseStudy.Domain {
         internal Date AddMonth(int months) {
             return new Date(_date.AddMonths(months));
         }
+
+        internal static bool IsBetween(Date theDate,Date startDate,Date endDate) {
+            return theDate>=startDate && theDate<=endDate;
+        }
     }
 }

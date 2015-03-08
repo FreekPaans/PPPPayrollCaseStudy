@@ -36,8 +36,7 @@ namespace PayrollCaseStudy.Domain {
 
             var dues  = fridays * _weeklyDues;
 
-            var serviceCharges = _charges.Sum(_=>_.Amount);
-
+            var serviceCharges = _charges.Where(_=>Date.IsBetween(_.Date, paycheck.PayPeriodStartDate,paycheck.PayPeriodEndDate)).Sum(_=>_.Amount);
 
             return dues + serviceCharges;
         }

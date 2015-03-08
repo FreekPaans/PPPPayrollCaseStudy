@@ -665,6 +665,40 @@ namespace PayrollCaseStudy.Domain.Tests {
             Assert.AreEqual((8*15.24M) - (9.42M+19.42M), paycheck.NetPay);
         }
 
+        [TestMethod]
+        public void TestServiceChargesSpanningMultiplePayPeriods() {
+            var empId = 1;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.24M);
+            addTx.Execute();
+            int memberId = 7734;
+            var memberTx = new ChangeMemberTransaction(empId,memberId,9.42M);
+            memberTx.Execute();
+            var earlyDate = new Date(11,2,2001); //previous friday
+            var payDate = new Date(11,9,2001);
+            var lateDate = new Date(11,16,2001); //this friday
+
+            var serviceChargeTx1 = new ServiceChargeTransaction(memberId,payDate,19.42M);
+            serviceChargeTx1.Execute();
+            var serviceChargeTx2 = new ServiceChargeTransaction(memberId,earlyDate,100M);
+            serviceChargeTx2.Execute();
+            var serviceChargeTx3 = new ServiceChargeTransaction(memberId,lateDate,200M);
+            serviceChargeTx3.Execute();
+
+            var timecardTx = new TimeCardTransaction(payDate,8,empId);
+            timecardTx.Execute();
+
+            var payDayTx = new PaydayTransaction(payDate);
+            payDayTx.Execute();
+            var paycheck = payDayTx.GetPaycheck(empId);
+
+            Assert.IsNotNull(paycheck, "No paycheck available");
+            Assert.AreEqual(payDate,paycheck.PayPeriodEndDate);
+            Assert.AreEqual(8*15.24M,paycheck.GrossPay);
+            Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
+            Assert.AreEqual(9.42M+19.42M,paycheck.Deductions, "Deductions are incorrect");
+            Assert.AreEqual((8*15.24M) - (9.42M+19.42M), paycheck.NetPay);
+        }
+
         private void ValidatePaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal grosspay, decimal deductions) {
             var paycheck = paydayTx.GetPaycheck(empId);
             Assert.IsNotNull(paycheck);
