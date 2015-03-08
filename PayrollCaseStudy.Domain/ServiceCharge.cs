@@ -5,9 +5,9 @@ using System.Text;
 
 namespace PayrollCaseStudy.Domain {
     public class ServiceCharge {
-        private int _forDate;
+        private Date _forDate;
 
-        public int Date {
+        public Date Date {
             get { return _forDate; }
         }
         private decimal _charge;
@@ -16,7 +16,7 @@ namespace PayrollCaseStudy.Domain {
             get { return _charge; }
         }
 
-        public ServiceCharge(int forDate,decimal charge) {
+        public ServiceCharge(Date forDate,decimal charge) {
             _forDate = forDate;
             _charge = charge;
         }

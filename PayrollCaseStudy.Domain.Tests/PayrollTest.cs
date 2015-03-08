@@ -165,10 +165,10 @@ namespace PayrollCaseStudy.Domain.Tests {
 
             PayrollDatabase.Instance.AddUnionMember(memberId,employee);
 
-            var serviceChargeTransaction = new ServiceChargeTransaction(memberId, 20011101,12.95M);
+            var serviceChargeTransaction = new ServiceChargeTransaction(memberId, new Date(11,01,2001),12.95M);
             serviceChargeTransaction.Execute();
 
-            var serviceCharge = unionAffiliation.GetServiceCharge(20011101);
+            var serviceCharge = unionAffiliation.GetServiceCharge(new Date(11,01,2001));
             Assert.IsNotNull(serviceCharge);
             Assert.AreEqual(12.95M,serviceCharge.Amount);
         }
@@ -638,6 +638,31 @@ namespace PayrollCaseStudy.Domain.Tests {
             var paycheck = paydayTx.GetPaycheck(empId);
 
             ValidatePaycheck(paydayTx,empId,payDate, 1000M, 5 * 9.42M);
+        }
+
+        [TestMethod]
+        public void TestHourlyUnionMemberServiceCharge() {
+            var empId = 1;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.24M);
+            addTx.Execute();
+            int memberId = 7734;
+            var memberTx = new ChangeMemberTransaction(empId,memberId,9.42M);
+            memberTx.Execute();
+            var payDate = new Date(11,9,2001);
+            var serviceChargeTx = new ServiceChargeTransaction(memberId,payDate,19.42M);
+            serviceChargeTx.Execute();
+            var timecardTx = new TimeCardTransaction(payDate,8,empId);
+            timecardTx.Execute();
+            var payDayTx = new PaydayTransaction(payDate);
+            payDayTx.Execute();
+            var paycheck = payDayTx.GetPaycheck(empId);
+
+            Assert.IsNotNull(paycheck, "No paycheck available");
+            Assert.AreEqual(payDate,paycheck.PayPeriodEndDate);
+            Assert.AreEqual(8*15.24M,paycheck.GrossPay);
+            Assert.AreEqual("Hold", paycheck.GetField("Disposition"));
+            Assert.AreEqual(9.42M+19.42M,paycheck.Deductions);
+            Assert.AreEqual((8*15.24M) - (9.42M+19.42M), paycheck.NetPay);
         }
 
         private void ValidatePaycheck(PaydayTransaction paydayTx,int empId,Date payDate,decimal grosspay, decimal deductions) {

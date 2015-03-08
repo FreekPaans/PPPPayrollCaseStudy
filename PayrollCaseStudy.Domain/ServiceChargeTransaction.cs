@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace PayrollCaseStudy.Domain {
     public class ServiceChargeTransaction {
         private decimal _charge;
-        private int _forDate;
+        private Date _forDate;
         private int _memberId;
         
-        public ServiceChargeTransaction(int memberId,int forDate,decimal charge) {
+        public ServiceChargeTransaction(int memberId,Date forDate,decimal charge) {
             _memberId = memberId;
             _forDate = forDate;
             _charge = charge;

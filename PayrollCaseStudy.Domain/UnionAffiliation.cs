@@ -23,18 +23,23 @@ namespace PayrollCaseStudy.Domain {
             _memberId = memberId;
         }
 
-        internal void AddServiceCharge(int forDate,decimal charge) {
+        internal void AddServiceCharge(Date forDate,decimal charge) {
             _charges.Add(new ServiceCharge(forDate,charge));
         }
 
-        public ServiceCharge GetServiceCharge(int forDate) {
+        public ServiceCharge GetServiceCharge(Date forDate) {
             return _charges.FirstOrDefault(_=>_.Date == forDate);
         }
 
         public decimal CalculateDeductions(Paycheck paycheck) {
             var fridays = NumberOfFridaysInPayPeriod(paycheck.PayPeriodStartDate,paycheck.PayPeriodEndDate);
 
-            return fridays * _weeklyDues;
+            var dues  = fridays * _weeklyDues;
+
+            var serviceCharges = _charges.Sum(_=>_.Amount);
+
+
+            return dues + serviceCharges;
         }
 
         private int NumberOfFridaysInPayPeriod(Date startDate,Date endDate) {
