@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
-    public class DeleteEmployeeTransaction {
+    public class DeleteEmployeeTransaction : Transaction{
         private int _employeeId;
 
         public DeleteEmployeeTransaction(int empId) {

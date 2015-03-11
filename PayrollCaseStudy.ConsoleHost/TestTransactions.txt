@@ -1,3 +1,4 @@
 ﻿AddEmp 123 "Freek Paans" "Eindhoven" H 10.5
 AddEmp 124 "Fred Paans" "Utrecht" S 1000.5
 AddEmp 125 "Frank Paans" "Amsterdam" C 100.5 0.2
+DelEmp 125

@@ -37,8 +37,14 @@ namespace PayrollCaseStudy.Domain {
             switch(wordReader.Next()) {
                 case "AddEmp":
                     return AddEmp(line,wordReader);
+                case "DelEmp":
+                    return DelEmp(line,wordReader);
             }
             throw new InvalidOperationException(string.Format("Cannot parse {0}", line));
+        }
+
+        private Transaction DelEmp(string line,WordReader wordReader) {
+            return new DeleteEmployeeTransaction(wordReader.NextAsInt());
         }
 
         private Transaction AddEmp(string line, WordReader wordReader) {

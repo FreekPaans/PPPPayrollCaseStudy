@@ -13,6 +13,7 @@ namespace PayrollCaseStudy.ConsoleHost {
             var parser = new TextParserTransactionSource(reader);
             var app = new PayrollApplication(parser);
             app.Process();
+            return;
         }
     }
 }
