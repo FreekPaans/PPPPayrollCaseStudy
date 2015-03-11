@@ -14,7 +14,15 @@ namespace PayrollCaseStudy.Domain {
 
         public void Process() {
             while(true) { 
-                var transaction = _source.Next();
+                Transaction transaction;
+                try {
+                    transaction = _source.Next();
+                }
+                catch (Exception e) {
+                    Console.Error.WriteLine("Failed processing line:\n{0}", e);
+                    continue;
+                }
+
                 if(transaction == null) {
                     return;
                 }
