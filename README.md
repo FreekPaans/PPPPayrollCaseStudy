@@ -5,7 +5,7 @@ It's based on the original book (not the C# one), though I'm interested how the 
 
 ## Releases
 * Section 3: [All code and tests](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/done-with-section-3)
-* Chapter 22: [Packaged by conceptual relation]
+* Chapter 22: [Packaged by conceptual relation](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-conceptual-relation)
 
 ## Wishlist
 * Real database implementation
