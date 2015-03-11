@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
-    public class TimeCardTransaction {
+    public class TimeCardTransaction : Transaction{
         private int _empId;
         private decimal _hours;
         private Date _forDate;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,6 +88,10 @@ namespace PayrollCaseStudy.Domain {
 
         internal static bool IsBetween(Date theDate,Date startDate,Date endDate) {
             return theDate>=startDate && theDate<=endDate;
+        }
+
+        internal static Date Parse(string p) {
+            return new Date(DateTime.ParseExact(p,"yyyy-MM-dd",CultureInfo.InvariantCulture,DateTimeStyles.AssumeUniversal));
         }
     }
 }

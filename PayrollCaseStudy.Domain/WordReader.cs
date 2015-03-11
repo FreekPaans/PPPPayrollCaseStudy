@@ -66,5 +66,9 @@ namespace PayrollCaseStudy.Domain {
             var word = Next();
             return int.Parse(word);
         }
+
+        internal Date NextAsDate() {
+            return Date.Parse(Next());
+        }
     }
 }

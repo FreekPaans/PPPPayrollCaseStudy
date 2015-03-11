@@ -39,8 +39,17 @@ namespace PayrollCaseStudy.Domain {
                     return AddEmp(line,wordReader);
                 case "DelEmp":
                     return DelEmp(line,wordReader);
+                case "TimeCard":
+                    return TimeCard(line,wordReader);
             }
             throw new InvalidOperationException(string.Format("Cannot parse {0}", line));
+        }
+
+        private Transaction TimeCard(string line,WordReader wordReader) {
+            var empId = wordReader.NextAsInt();
+            var date = wordReader.NextAsDate();
+            var hour = wordReader.NextAsDecimal();
+            return new TimeCardTransaction(date,hour,empId);
         }
 
         private Transaction DelEmp(string line,WordReader wordReader) {
