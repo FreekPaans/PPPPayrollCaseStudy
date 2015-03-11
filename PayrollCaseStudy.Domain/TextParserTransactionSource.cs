@@ -60,9 +60,51 @@ namespace PayrollCaseStudy.Domain {
                     return ChangeEmployeeName(empId,wordReader);
                 case "Address":
                     return ChangeEmployeeAddress(empId,wordReader);
+                case "Hourly":
+                    return ChangeHourly(empId,wordReader);
+                case "Salaried":
+                    return ChangeSalaried(empId,wordReader);
+                case "Commissioned":
+                    return ChangeCommissioned(empId,wordReader);
+                case "Direct":
+                    return ChangeDirect(empId,wordReader);
+                case "Hold":
+                    return ChangeHold(empId,wordReader);
+                case "Mail":
+                    return ChangeMail(empId,wordReader);
+                case "NoMember":
+                    return ChangeNoMember(empId,wordReader);
             }
             
             throw new InvalidOperationException(string.Format("Couldn't parse {0}", line));
+        }
+
+        private Transaction ChangeNoMember(int empId,WordReader wordReader) {
+            return new ChangeUnaffiliatedTransaction(empId);
+        }
+
+        private Transaction ChangeMail(int empId,WordReader wordReader) {
+            return new ChangeMailTransaction(empId,wordReader.NextQuoted());
+        }
+
+        private Transaction ChangeHold(int empId,WordReader wordReader) {
+            return new ChangeHoldTransaction(empId);
+        }
+
+        private Transaction ChangeDirect(int empId,WordReader wordReader) {
+            return new ChangeDirectTransaction(empId,wordReader.Next(),wordReader.Next());
+        }
+
+        private Transaction ChangeCommissioned(int empId,WordReader wordReader) {
+            return new ChangeCommissionedTransaction(empId,wordReader.NextAsDecimal(),wordReader.NextAsDecimal());
+        }
+
+        private Transaction ChangeSalaried(int empId,WordReader wordReader) {
+            return new ChangeSalariedTransaction(empId,wordReader.NextAsDecimal());
+        }
+
+        private Transaction ChangeHourly(int empId,WordReader wordReader) {
+            return new ChangeHourlyTransaction(empId,wordReader.NextAsDecimal());
         }
 
         private Transaction ChangeEmployeeAddress(int empId,WordReader wordReader) {

@@ -9,3 +9,10 @@ ChgEmp 126 Member 40001 Dues 12.3
 ServiceCharge 40001 126
 ChgEmp 126 Name "Bar Paans"
 ChgEmp 126 Address "Gorinchem"
+ChgEmp 126 Hourly 15.5
+ChgEmp 126 Salaried 1005.5
+ChgEmp 126 Commissioned 1005.5 0.05
+ChgEmp 126 Direct citi 1234578
+ChgEmp 126 Hold
+ChgEmp 126 Mail "Tilburg"
+ChgEmp 126 NoMember
