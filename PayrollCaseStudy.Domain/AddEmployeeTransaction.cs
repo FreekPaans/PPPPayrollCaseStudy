@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
-    public abstract class AddEmployeeTransaction {
+    public abstract class AddEmployeeTransaction: Transaction {
         private string _address;
         private string _name;
         private int _employeeId;

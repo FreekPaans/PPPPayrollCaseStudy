@@ -73,6 +73,7 @@
     <Compile Include="PaymentClassification.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="PaymentSchedule.cs" />
+    <Compile Include="PayrollApplication.cs" />
     <Compile Include="PayrollDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalariedClassification.cs" />
@@ -80,10 +81,14 @@
     <Compile Include="SalesReceiptTransaction.cs" />
     <Compile Include="ServiceCharge.cs" />
     <Compile Include="ServiceChargeTransaction.cs" />
+    <Compile Include="TextParserTransactionSource.cs" />
     <Compile Include="TimeCard.cs" />
     <Compile Include="TimeCardTransaction.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionSource.cs" />
     <Compile Include="UnionAffiliation.cs" />
     <Compile Include="WeeklySchedule.cs" />
+    <Compile Include="WordReader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
