@@ -1,4 +1,4 @@
-﻿using PayrollCaseStudy.Domain;
+﻿using PayrollCaseStudy.PayrollApplication;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ namespace PayrollCaseStudy.ConsoleHost {
         static void Main(string[] args) {
             var reader = new StreamReader(new FileStream("TestTransactions.txt",FileMode.Open,FileAccess.Read));
             var parser = new TextParserTransactionSource(reader);
-            var app = new PayrollApplication(parser);
+            var app = new Application(parser);
             app.Process();
             return;
         }
