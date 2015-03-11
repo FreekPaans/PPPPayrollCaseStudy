@@ -427,6 +427,20 @@ namespace PayrollCaseStudy.Domain.Tests {
         }
 
         [TestMethod]
+        public void TestChangeAddressTransaction() {
+            var empId = 1;
+            var addTx = new AddHourlyEmployee(empId,"Bill","Home",15.25M);
+            addTx.Execute();
+            var changeNameTx = new ChangeAddressTransaction(empId,"Work");
+            changeNameTx.Execute();
+
+            var employee = PayrollDatabase.Instance.GetEmployee(empId);
+
+            Assert.IsNotNull(employee, "employee not found in database");
+            Assert.AreEqual("Work", employee.Address);
+        }
+
+        [TestMethod]
         public void TestChangeHourlyTransaction() {
             var empId = 1;
             var addTx = new AddCommissionedEmployee(empId,"Lance","Home",2500,3.2M);

@@ -7,3 +7,5 @@ AddEmp 126 "Foo Paans" "Rotterdam" C 120.5 0.15
 SalesReceipt 126 2015-03-12 5000.0
 ChgEmp 126 Member 40001 Dues 12.3
 ServiceCharge 40001 126
+ChgEmp 126 Name "Bar Paans"
+ChgEmp 126 Address "Gorinchem"

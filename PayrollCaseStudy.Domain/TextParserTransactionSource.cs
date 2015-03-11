@@ -56,9 +56,21 @@ namespace PayrollCaseStudy.Domain {
             switch(wordReader.Next()) {
                 case "Member":
                     return ChangeEmployeeMember(empId,wordReader);
+                case "Name":
+                    return ChangeEmployeeName(empId,wordReader);
+                case "Address":
+                    return ChangeEmployeeAddress(empId,wordReader);
             }
             
             throw new InvalidOperationException(string.Format("Couldn't parse {0}", line));
+        }
+
+        private Transaction ChangeEmployeeAddress(int empId,WordReader wordReader) {
+            return new ChangeAddressTransaction(empId,wordReader.NextQuoted());
+        }
+
+        private Transaction ChangeEmployeeName(int empId,WordReader wordReader) {
+            return new ChangeNameTransaction(empId,wordReader.NextQuoted());
         }
 
         private Transaction ChangeEmployeeMember(int empId,WordReader wordReader) {

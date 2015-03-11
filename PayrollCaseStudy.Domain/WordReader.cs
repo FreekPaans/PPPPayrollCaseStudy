@@ -46,7 +46,7 @@ namespace PayrollCaseStudy.Domain {
             }
 
             var next = _line.Substring(1,nextQuote-1);
-            _line = _line.Substring(nextQuote+2);
+            _line = _line.Substring(Math.Min(nextQuote+2,_line.Length));
             return next;
         }
 

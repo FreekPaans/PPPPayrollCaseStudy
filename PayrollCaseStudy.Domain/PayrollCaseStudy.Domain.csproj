@@ -45,6 +45,7 @@
     <Compile Include="AddSalariedEmployee.cs" />
     <Compile Include="Affiliation.cs" />
     <Compile Include="BiweeklySchedule.cs" />
+    <Compile Include="ChangeAddressTransaction.cs" />
     <Compile Include="ChangeAffiliationTransaction.cs" />
     <Compile Include="ChangeClassificationTransaction.cs" />
     <Compile Include="ChangeCommissionedTransaction.cs" />

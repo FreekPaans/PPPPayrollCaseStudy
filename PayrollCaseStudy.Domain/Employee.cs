@@ -18,6 +18,11 @@ namespace PayrollCaseStudy.Domain {
         }
         private string _address;
 
+        public string Address {
+            get { return _address; }
+            set { _address = value; }
+        }
+
         private Affiliation _affiliation = new NoAffiliation();
 
         public Affiliation Affiliation {
@@ -69,5 +74,6 @@ namespace PayrollCaseStudy.Domain {
         internal Date GetPayPeriodStartDate(Date payPeriod) {
             return Schedule.GetPayPeriodStartDate(payPeriod);
         }
+
     }
 }
