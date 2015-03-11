@@ -47,8 +47,14 @@ namespace PayrollCaseStudy.Domain {
                     return ServiceCharge(line,wordReader);
                 case "ChgEmp":
                     return ChangeEmployee(line,wordReader);
+                case "PayDate":
+                    return PayDate(line,wordReader);
             }
             throw new InvalidOperationException(string.Format("Cannot parse {0}", line));
+        }
+
+        private Transaction PayDate(string line,WordReader wordReader) {
+            return new PaydayTransaction(wordReader.NextAsDate());
         }
 
         private Transaction ChangeEmployee(string line,WordReader wordReader) {

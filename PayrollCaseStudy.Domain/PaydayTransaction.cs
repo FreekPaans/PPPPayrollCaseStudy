@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
-    public class PaydayTransaction {
+    public class PaydayTransaction : Transaction{
         private Date _forPayDate;
         Dictionary<int,Paycheck> _paychecks = new Dictionary<int,Paycheck>();
 
