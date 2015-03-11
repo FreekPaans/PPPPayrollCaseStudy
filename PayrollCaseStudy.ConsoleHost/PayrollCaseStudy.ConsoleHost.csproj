@@ -53,9 +53,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PayrollCaseStudy.Domain\PayrollCaseStudy.Domain.csproj">
-      <Project>{617c6fa7-44ef-4c2a-99ce-6e2605bfbf04}</Project>
-      <Name>PayrollCaseStudy.Domain</Name>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollApplication\PayrollCaseStudy.PayrollApplication.csproj">
+      <Project>{8f845ea2-d31b-4933-9dca-4e2832186e6d}</Project>
+      <Name>PayrollCaseStudy.PayrollApplication</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
