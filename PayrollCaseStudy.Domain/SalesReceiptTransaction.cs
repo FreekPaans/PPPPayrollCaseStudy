@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.Domain {
-    public class SalesReceiptTransaction {
+    public class SalesReceiptTransaction : Transaction{
         private decimal _amount;
         private Date _forDate;
         private int _employeeId;

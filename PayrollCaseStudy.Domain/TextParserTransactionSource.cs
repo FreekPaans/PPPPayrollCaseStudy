@@ -41,8 +41,44 @@ namespace PayrollCaseStudy.Domain {
                     return DelEmp(line,wordReader);
                 case "TimeCard":
                     return TimeCard(line,wordReader);
+                case "SalesReceipt":
+                    return SalesReceipt(line,wordReader);
+                case "ServiceCharge":
+                    return ServiceCharge(line,wordReader);
+                case "ChgEmp":
+                    return ChangeEmployee(line,wordReader);
             }
             throw new InvalidOperationException(string.Format("Cannot parse {0}", line));
+        }
+
+        private Transaction ChangeEmployee(string line,WordReader wordReader) {
+            var empId = wordReader.NextAsInt();
+            switch(wordReader.Next()) {
+                case "Member":
+                    return ChangeEmployeeMember(empId,wordReader);
+            }
+            
+            throw new InvalidOperationException(string.Format("Couldn't parse {0}", line));
+        }
+
+        private Transaction ChangeEmployeeMember(int empId,WordReader wordReader) {
+            var memberId = wordReader.NextAsInt();
+            wordReader.Skip();
+            var dues = wordReader.NextAsDecimal();
+            return new ChangeMemberTransaction(empId,memberId,dues);
+        }
+
+        private Transaction ServiceCharge(string line,WordReader wordReader) {
+            var memberId = wordReader.NextAsInt();
+            var amount = wordReader.NextAsDecimal();
+            return new ServiceChargeTransaction(memberId,Date.Today,amount);
+        }
+
+        private Transaction SalesReceipt(string line,WordReader wordReader) {
+            var empId = wordReader.NextAsInt();
+            var date = wordReader.NextAsDate();
+            var amount = wordReader.NextAsDecimal();
+            return new SalesReceiptTransaction(amount,date,empId);
         }
 
         private Transaction TimeCard(string line,WordReader wordReader) {

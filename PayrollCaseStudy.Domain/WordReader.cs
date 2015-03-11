@@ -70,5 +70,9 @@ namespace PayrollCaseStudy.Domain {
         internal Date NextAsDate() {
             return Date.Parse(Next());
         }
+
+        internal void Skip() {
+            Next();
+        }
     }
 }

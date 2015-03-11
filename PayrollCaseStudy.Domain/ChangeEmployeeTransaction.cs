@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace PayrollCaseStudy.Domain {
-    public abstract class ChangeEmployeeTransaction {
+    public abstract class ChangeEmployeeTransaction : Transaction{
         private int _empId;
 
         protected abstract void Change(Employee e);

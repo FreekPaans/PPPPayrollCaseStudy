@@ -93,5 +93,11 @@ namespace PayrollCaseStudy.Domain {
         internal static Date Parse(string p) {
             return new Date(DateTime.ParseExact(p,"yyyy-MM-dd",CultureInfo.InvariantCulture,DateTimeStyles.AssumeUniversal));
         }
+
+        public static Date Today {
+            get {
+                return new Date(DateTime.Today);
+            }
+        }
     }
 }
