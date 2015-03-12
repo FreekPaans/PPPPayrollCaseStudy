@@ -7,7 +7,7 @@ It's based on the original book (not the C# one), though I'm interested how the 
 * Section 3: [All code and tests](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/done-with-section-3)
 * Chapter 22: [Packaged by conceptual relation (Figure 22-1)](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-conceptual-relation)
 * Chapter 22: [Packaged by Closed Hierarchy (Figure 22-2)](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-closed-hierarchy)
-* Chapter 22: [Packaged by REP (Figure 22-3)](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-rep)
+* Chapter 22: [Packaged by REP (Figure 22-3)](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/packaged-by-rep)
 
 ## Package strategies
 
