@@ -17,6 +17,8 @@ It's based on the original book (not the C# one), though I'm interested how the 
 
 ## Package strategies
 
+Several strategies for packaging the code are suggested in the book. I implemented those and tagged the commits. I also used NDepend to generate abstractness vs instability diagrams for each strategy.
+
 ### Packaged by conceptual relation
 This is from figure 22-1 on page 276. [Source](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-conceptual-relation).
 
