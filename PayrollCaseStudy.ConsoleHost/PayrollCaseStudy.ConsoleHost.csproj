@@ -65,6 +65,14 @@
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
       <Name>PayrollCaseStudy.PayrollDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollFactory\PayrollCaseStudy.PayrollFactory.csproj">
+      <Project>{fd4c1478-448f-477b-a483-84ec8ba023ae}</Project>
+      <Name>PayrollCaseStudy.PayrollFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollImplementation\PayrollCaseStudy.PayrollImplementation.csproj">
+      <Project>{e0138da2-a4cd-4720-b87c-6145cd7a198c}</Project>
+      <Name>PayrollCaseStudy.PayrollImplementation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.TextParser\PayrollCaseStudy.TextParser.csproj">
       <Project>{a1df59f3-1d46-45ee-acb6-569cf7cd232d}</Project>
       <Name>PayrollCaseStudy.TextParser</Name>

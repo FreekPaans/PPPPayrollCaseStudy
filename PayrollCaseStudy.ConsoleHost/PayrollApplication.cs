@@ -15,6 +15,7 @@ namespace PayrollCaseStudy.ConsoleHost {
         static void Main(string[] args) {
             PayrollDatabase.Scope.DatabaseInstance = InMemPayrollDatbase.Database.Instance;
             TransactionFactory.Scope.TransactionFactory = new TransactionImplementation.PayrollTransactionFactory();
+            PayrollFactory.Scope.PayrollFactory = new PayrollImplementation.Factory();
 
             var reader = new StreamReader(new FileStream("TestTransactions.txt",FileMode.Open,FileAccess.Read));
             var parser = new TextParserTransactionSource(reader);
