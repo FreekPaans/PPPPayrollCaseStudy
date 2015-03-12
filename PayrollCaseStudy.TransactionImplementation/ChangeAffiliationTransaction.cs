@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.PayrollDomain;
+﻿using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

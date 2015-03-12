@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Methods;
-using PayrollCaseStudy.PayrollDomain;
+﻿using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,8 @@ namespace PayrollCaseStudy.TransactionImplementation {
         }
 
         protected override PaymentMethod GetMethod() {
-            return new DirectMethod(_account,_bank);
+            return PayrollFactory.Scope.PayrollFactory.MakeDirectMethod(_bank,_account);
+            
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.CommonTypes;
+﻿using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionApplication;
@@ -27,12 +26,13 @@ namespace PayrollCaseStudy.TransactionImplementation {
                 throw new Exception("Employee not found");
             }
 
-            var commissioned = employee.GetClassification() as CommissionedClassification;
-            if(commissioned == null) {
-                throw new Exception("Employee not commissioned");
-            }
+            
 
-            commissioned.AddSalesReceipt(new SalesReceipt(_amount,_forDate));
+            var classification = employee.GetClassification();
+            
+            classification.AddSalesReceipt(_amount,_forDate);
+            
+            
         }
     }
 }

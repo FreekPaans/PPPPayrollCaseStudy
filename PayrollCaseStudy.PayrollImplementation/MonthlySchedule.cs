@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.Classifications {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class MonthlySchedule : PaymentSchedule{
         public bool IsPayDate(Date date) {
             return IsLastDayOfMonth(date);

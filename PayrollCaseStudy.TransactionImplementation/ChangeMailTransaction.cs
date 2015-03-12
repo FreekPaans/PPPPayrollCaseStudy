@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Methods;
-using PayrollCaseStudy.PayrollDomain;
+﻿using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,8 @@ namespace PayrollCaseStudy.TransactionImplementation {
             _address = address;
         }
         protected override PaymentMethod GetMethod() {
-            return new MailMethod(_address);
+            
+            return PayrollFactory.Scope.PayrollFactory.MakeMailMethod(_address);
         }
     }
 }

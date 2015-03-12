@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.PayrollDatabase;
+﻿using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
@@ -12,16 +11,16 @@ namespace PayrollCaseStudy.TransactionImplementation {
         public ChangeUnaffiliatedTransaction(int empId) : base(empId){
         }
         protected override Affiliation GetAffiliation() {
-            return new NoAffiliation();
+            return PayrollFactory.Scope.PayrollFactory.MakeNoAffiliation();
         }
 
         protected override void RecordMembership(Employee e) {
-            var affiliation = e.Affiliation as UnionAffiliation;
+            var memberId = e.Affiliation.GetMemberId();
 
-            if(affiliation==null) {
+            if(memberId==null) {
                 return;
             }
-            PayrollDatabase.Scope.DatabaseInstance.RemoveUnionMember(affiliation.MemberId);
+            PayrollDatabase.Scope.DatabaseInstance.RemoveUnionMember(memberId.Value);
         }
     }
 }

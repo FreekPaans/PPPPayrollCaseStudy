@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.Affiliations {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class UnionAffiliation  : Affiliation{
         private decimal _weeklyDues;
 
@@ -52,6 +52,11 @@ namespace PayrollCaseStudy.Affiliations {
             }
 
             return res;
+        }
+
+
+        public int? GetMemberId() {
+            return _memberId;
         }
     }
 }

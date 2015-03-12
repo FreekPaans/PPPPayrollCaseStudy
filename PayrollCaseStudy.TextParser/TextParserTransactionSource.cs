@@ -1,7 +1,4 @@
-﻿using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.CommonTypes;
-using PayrollCaseStudy.Methods;
+﻿using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionApplication;
 using System;

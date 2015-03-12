@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.CommonTypes;
+﻿using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionApplication;
 using System;
@@ -26,13 +25,11 @@ namespace PayrollCaseStudy.TransactionImplementation {
                 throw new Exception("No such employee");
             }
 
-            var hourlyClassification = employee.GetClassification() as HourlyClassification;
+            var classification = employee.GetClassification();
             
-            if(hourlyClassification == null) {
-                throw new Exception("Tried to add timecard to non-hourly employee");
-            }            
+            classification.AddTimeCard(_forDate,_hours);
 
-            hourlyClassification.AddTimeCard(new TimeCard(_forDate,_hours));
+          
         }
     }
 }

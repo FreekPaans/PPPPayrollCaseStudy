@@ -39,10 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BiweeklySchedule.cs" />
-    <Compile Include="MonthlySchedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeeklySchedule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">

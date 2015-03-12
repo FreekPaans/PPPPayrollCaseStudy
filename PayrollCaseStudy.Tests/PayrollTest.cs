@@ -2,12 +2,10 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PayrollCaseStudy.PayrollDatabase;
-using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.Methods;
 using PayrollCaseStudy.CommonTypes;
-using PayrollCaseStudy.Affiliations;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionImplementation;
+using PayrollCaseStudy.PayrollImplementation;
 
 namespace PayrollCaseStudy.Domain.Tests {
     [TestClass]
@@ -17,6 +15,7 @@ namespace PayrollCaseStudy.Domain.Tests {
         [ClassInitialize]
         public static void InitClass(TestContext t) {
             PayrollDatabase.Scope.DatabaseInstance = Database;
+            PayrollFactory.Scope.PayrollFactory = new PayrollImplementation.Factory();
         }
 
         [TestInitialize]

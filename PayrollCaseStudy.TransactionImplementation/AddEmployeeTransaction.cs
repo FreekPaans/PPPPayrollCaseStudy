@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Methods;
-using PayrollCaseStudy.PayrollDatabase;
+﻿using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionApplication;
 using System;
@@ -23,7 +22,7 @@ namespace PayrollCaseStudy.TransactionImplementation {
         public virtual void Execute() {
             PaymentClassification classification = GetClassification();
             PaymentSchedule paymentSchedule = GetSchedule();
-            PaymentMethod method = new HoldMethod();
+            PaymentMethod method = PayrollFactory.Scope.PayrollFactory.MakeHoldMethod();
             var employee=  new Employee(_employeeId,_name,_address);
             employee.Classification = classification;
             employee.Schedule = paymentSchedule;

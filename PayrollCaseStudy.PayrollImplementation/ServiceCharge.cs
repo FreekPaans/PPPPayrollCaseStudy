@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.Affiliations {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class ServiceCharge {
         private Date _forDate;
 

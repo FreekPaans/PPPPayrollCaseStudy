@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.Classifications {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class HourlyClassification : PaymentClassification{
         private decimal _hourlyRate;
         readonly List<TimeCard> _timeCards;
@@ -25,8 +25,8 @@ namespace PayrollCaseStudy.Classifications {
             return _timeCards.Single(_=>_.Date==date);
         }
 
-        public void AddTimeCard(TimeCard timeCard) {
-            _timeCards.Add(timeCard);
+        public override void AddTimeCard(Date date, decimal hours) {
+            _timeCards.Add(new TimeCard(date,hours));
         }
 
         public override decimal CalculatePay(Paycheck paycheck) {

@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.PayrollDomain;
+﻿using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +15,12 @@ namespace PayrollCaseStudy.TransactionImplementation {
             this._commissionRate = commisionRate;
         }
         protected override PaymentClassification GetClassification() {
-            return new CommissionedClassification(_salary,_commissionRate);
+            return PayrollFactory.Scope.PayrollFactory.MakeCommissionedClassification(_salary,_commissionRate);
+            
         }
 
         protected override PaymentSchedule GetSchedule() {
-            return new BiweeklySchedule();
+            return PayrollFactory.Scope.PayrollFactory.MakeBiweeklySchedule();
         }
     }
 }

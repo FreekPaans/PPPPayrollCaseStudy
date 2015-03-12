@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.PayrollDatabase;
+﻿using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,8 @@ namespace PayrollCaseStudy.TransactionImplementation {
 
 
         protected override Affiliation GetAffiliation() {
-            return new UnionAffiliation(_memberId,_weeklyDues);
+            return PayrollFactory.Scope.PayrollFactory.MakeUnionAffiliation(_memberId, _weeklyDues);
+            
         }
 
         protected override void RecordMembership(Employee e) {

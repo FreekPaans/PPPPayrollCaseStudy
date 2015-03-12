@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.PayrollDomain;
+﻿using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +14,11 @@ namespace PayrollCaseStudy.TransactionImplementation {
         }
 
         protected override PaymentClassification GetClassification() {
-            return new HourlyClassification(_hourlyRate);
+            return PayrollFactory.Scope.PayrollFactory.MakeHourlyClassification(_hourlyRate);
         }
 
         protected override PaymentSchedule GetSchedule() {
-            return new WeeklySchedule();
+            return PayrollFactory.Scope.PayrollFactory.MakeWeeklySchedule();
         }
     }
 }

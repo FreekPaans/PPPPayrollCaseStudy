@@ -54,14 +54,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PayrollCaseStudy.Affiliations\PayrollCaseStudy.Affiliations.csproj">
-      <Project>{458871fe-5ca5-4401-9745-f1ffc6f14030}</Project>
-      <Name>PayrollCaseStudy.Affiliations</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Classifications\PayrollCaseStudy.Classifications.csproj">
-      <Project>{786b6695-d570-408b-b802-d8a3c53788d9}</Project>
-      <Name>PayrollCaseStudy.Classifications</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
@@ -69,10 +61,6 @@
     <ProjectReference Include="..\PayrollCaseStudy.InMemPayrollDatabase\PayrollCaseStudy.InMemPayrollDatabase.csproj">
       <Project>{b1206f1f-374a-49c8-9883-a19878a08ecf}</Project>
       <Name>PayrollCaseStudy.InMemPayrollDatabase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
-      <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
-      <Name>PayrollCaseStudy.Methods</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDatabase\PayrollCaseStudy.PayrollDatabase.csproj">
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
@@ -82,9 +70,13 @@
       <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
       <Name>PayrollCaseStudy.PayrollDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
-      <Project>{e8cadbb6-f6fc-4f07-a5a7-95aea58877af}</Project>
-      <Name>PayrollCaseStudy.Schedules</Name>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollFactory\PayrollCaseStudy.PayrollFactory.csproj">
+      <Project>{fd4c1478-448f-477b-a483-84ec8ba023ae}</Project>
+      <Name>PayrollCaseStudy.PayrollFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollImplementation\PayrollCaseStudy.PayrollImplementation.csproj">
+      <Project>{e0138da2-a4cd-4720-b87c-6145cd7a198c}</Project>
+      <Name>PayrollCaseStudy.PayrollImplementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.TransactionApplication\PayrollCaseStudy.TransactionApplication.csproj">
       <Project>{41fa82ba-88be-4962-9b5d-bafa436995a2}</Project>

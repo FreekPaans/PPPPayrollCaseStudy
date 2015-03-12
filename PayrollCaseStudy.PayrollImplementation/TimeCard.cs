@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.Classifications {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class TimeCard {
         private Date _forDate;
 

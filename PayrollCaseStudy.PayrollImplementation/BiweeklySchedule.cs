@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.Classifications {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class BiweeklySchedule : PaymentSchedule{
         readonly static Date ReferenceDate = new Date(3,6,2015); // a friday
 

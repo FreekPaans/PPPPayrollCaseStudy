@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.Classifications {
+namespace PayrollCaseStudy.PayrollImplementation {
     public class CommissionedClassification : PaymentClassification{
         private decimal _salary;
         
@@ -30,12 +30,13 @@ namespace PayrollCaseStudy.Classifications {
             return _salesReceipts.Where(_=>_.Date == forDate).ToList();
         }
 
-        public void AddSalesReceipt(SalesReceipt salesReceipt) {
-            _salesReceipts.Add(salesReceipt);
+        public override void AddSalesReceipt(decimal amount, Date forDate) {
+            _salesReceipts.Add(new SalesReceipt(amount,forDate));
         }
 
         public override decimal CalculatePay(Paycheck paycheck) {
             return _salary + _salesReceipts.Where(_=>IsInPayPeriod(_.Date, paycheck)).Sum(_=>_.Amount * _commissionRate);
         }
+
     }
 }

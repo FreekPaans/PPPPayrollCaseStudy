@@ -8,5 +8,14 @@ namespace PayrollCaseStudy.PayrollDomain {
         public decimal CalculateDeductions(Paycheck paycheck) {
             return 0M;
         }
+
+
+        public int? GetMemberId() {
+            return null;
+        }
+
+        public void AddServiceCharge(CommonTypes.Date forDate,decimal charge) {
+            
+        }
     }
 }

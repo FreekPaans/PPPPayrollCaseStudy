@@ -1,5 +1,4 @@
-﻿using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.CommonTypes;
+﻿using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionApplication;
@@ -23,11 +22,7 @@ namespace PayrollCaseStudy.TransactionImplementation {
         public void Execute() {
             Employee e = PayrollDatabase.Scope.DatabaseInstance.GetUnionMember(_memberId);
 
-            var unionAffiliation = e.Affiliation as UnionAffiliation;
-
-            if(unionAffiliation!=null) {
-                unionAffiliation.AddServiceCharge(_forDate,_charge);
-            }
+            e.Affiliation.AddServiceCharge(_forDate,_charge);
         }
     }
 }
