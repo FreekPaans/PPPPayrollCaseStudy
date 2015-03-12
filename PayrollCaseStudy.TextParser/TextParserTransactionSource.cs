@@ -16,10 +16,10 @@ namespace PayrollCaseStudy.PayrollApplication {
     public class TextParserTransactionSource : TransactionSource{
         readonly TextReader _reader;
         readonly TransactionFactory.Factory _transactionFactory;
-
-        public TextParserTransactionSource(TextReader reader, TransactionFactory.Factory factory) {
+        
+        public TextParserTransactionSource(TextReader reader) {
             _reader = reader;
-            _transactionFactory = factory;
+            _transactionFactory = TransactionFactory.Scope.TransactionFactory;
         }
         public Transaction Next() {
             while(true) {
