@@ -10,9 +10,33 @@ It's based on the original book (not the C# one), though I'm interested how the 
 * Chapter 22: [Packaged by REP (Figure 22-3)](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/packaged-by-rep)
 * Chapter 22: [Final packaging (Figure 22-11)](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-final)
 
-## Package strategies
-
 ## Wishlist
 * Real database implementation
 * Acceptance tests
 * Web frontend
+
+## Package strategies
+
+### Packaged by conceptual relation
+This is from figure 22-1 on page 276. [Source](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-conceptual-relation).
+
+Abstractness vs instability:
+![](Metrics/PackagedByConceptualRelation.png)
+
+### Packaged by common closure principle
+This is from figure 22-2 on page 277. [Source](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-by-closed-hierarchy).
+
+Abstractness vs instability:
+![](Metrics/PackagedByClosedPackageHierarchy.png)
+
+### Packaged by REP
+This is from figure 22-3 on page 280. [Source](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/packaged-by-rep).
+
+Abstractness vs instability:
+![](Metrics/PackagedByREP.png)
+
+### Final packaging in book
+This is from figure 22-11 on page 289. [Source](https://github.com/FreekPaans/PPPPayrollCaseStudy/tree/package-final).
+
+Abstractness vs instability:
+![](Metrics/FinalPackaging.png)
