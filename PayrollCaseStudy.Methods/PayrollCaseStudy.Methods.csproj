@@ -39,19 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeDirectTransaction.cs" />
-    <Compile Include="ChangeHoldTransaction.cs" />
-    <Compile Include="ChangeMailTransaction.cs" />
-    <Compile Include="ChangeMethodTransaction.cs" />
     <Compile Include="DirectMethod.cs" />
     <Compile Include="MailMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PayrollCaseStudy.Employees\PayrollCaseStudy.Employees.csproj">
-      <Project>{8401746b-67c0-4e99-b005-ec8c7fe4bc21}</Project>
-      <Name>PayrollCaseStudy.Employees</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
       <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
       <Name>PayrollCaseStudy.PayrollDomain</Name>

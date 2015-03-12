@@ -39,22 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeAffiliationTransaction.cs" />
-    <Compile Include="ChangeMemberTransaction.cs" />
-    <Compile Include="ChangeUnaffiliatedTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceCharge.cs" />
-    <Compile Include="ServiceChargeTransaction.cs" />
     <Compile Include="UnionAffiliation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Employees\PayrollCaseStudy.Employees.csproj">
-      <Project>{8401746b-67c0-4e99-b005-ec8c7fe4bc21}</Project>
-      <Name>PayrollCaseStudy.Employees</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDatabase\PayrollCaseStudy.PayrollDatabase.csproj">
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>

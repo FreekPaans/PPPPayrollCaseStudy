@@ -8,7 +8,10 @@ using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.Affiliations;
 using PayrollCaseStudy.Payday;
 using PayrollCaseStudy.PayrollDomain;
-using PayrollCaseStudy.EmployeeDataTransactions;
+using PayrollCaseStudy.ClassificationTransactions;
+using PayrollCaseStudy.MethodTransactions;
+using PayrollCaseStudy.AffiliationTransactions;
+using PayrollCaseStudy.GeneralTransactions;
 
 namespace PayrollCaseStudy.Domain.Tests {
     [TestClass]

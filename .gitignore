@@ -38,3 +38,11 @@
 /PayrollCaseStudy.PayrollDomain/bin
 /PayrollCaseStudy.TextParser/obj
 /PayrollCaseStudy.TextParser/bin
+/PayrollCaseStudy.AffiliationTransactions/bin
+/PayrollCaseStudy.AffiliationTransactions/obj
+/PayrollCaseStudy.ClassificationTransactions/bin
+/PayrollCaseStudy.ClassificationTransactions/obj
+/PayrollCaseStudy.GeneralTransactions/bin
+/PayrollCaseStudy.GeneralTransactions/obj
+/PayrollCaseStudy.MethodTransactions/bin
+/PayrollCaseStudy.MethodTransactions/obj

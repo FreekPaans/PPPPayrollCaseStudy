@@ -58,21 +58,25 @@
       <Project>{458871fe-5ca5-4401-9745-f1ffc6f14030}</Project>
       <Name>PayrollCaseStudy.Affiliations</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.AffiliationTransactions\PayrollCaseStudy.AffiliationTransactions.csproj">
+      <Project>{c804e0f0-027f-4197-97c6-d78f66018050}</Project>
+      <Name>PayrollCaseStudy.AffiliationTransactions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.Classifications\PayrollCaseStudy.Classifications.csproj">
       <Project>{786b6695-d570-408b-b802-d8a3c53788d9}</Project>
       <Name>PayrollCaseStudy.Classifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.ClassificationTransactions\PayrollCaseStudy.ClassificationTransactions.csproj">
+      <Project>{8d30f9f3-de7b-4bbc-a422-a6d3158758d3}</Project>
+      <Name>PayrollCaseStudy.ClassificationTransactions</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.EmployeeDataTransactions\PayrollCaseStudy.EmployeeDataTransactions.csproj">
-      <Project>{855e8a45-6078-46d7-bf3c-312325ea1a8f}</Project>
-      <Name>PayrollCaseStudy.EmployeeDataTransactions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Employees\PayrollCaseStudy.Employees.csproj">
+    <ProjectReference Include="..\PayrollCaseStudy.GeneralTransactions\PayrollCaseStudy.GeneralTransactions.csproj">
       <Project>{8401746b-67c0-4e99-b005-ec8c7fe4bc21}</Project>
-      <Name>PayrollCaseStudy.Employees</Name>
+      <Name>PayrollCaseStudy.GeneralTransactions</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.InMemPayrollDatabase\PayrollCaseStudy.InMemPayrollDatabase.csproj">
       <Project>{b1206f1f-374a-49c8-9883-a19878a08ecf}</Project>
@@ -81,6 +85,10 @@
     <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
       <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
       <Name>PayrollCaseStudy.Methods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.MethodTransactions\PayrollCaseStudy.MethodTransactions.csproj">
+      <Project>{9d7762ce-457b-4867-8bb8-bdd8195fe871}</Project>
+      <Name>PayrollCaseStudy.MethodTransactions</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.Payday\PayrollCaseStudy.Payday.csproj">
       <Project>{edcf988d-53d8-414f-9fc5-0f7368decb51}</Project>
@@ -97,6 +105,10 @@
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
       <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
       <Name>PayrollCaseStudy.PayrollDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
+      <Project>{e8cadbb6-f6fc-4f07-a5a7-95aea58877af}</Project>
+      <Name>PayrollCaseStudy.Schedules</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -1,8 +1,11 @@
 ﻿using PayrollCaseStudy.Affiliations;
+using PayrollCaseStudy.AffiliationTransactions;
 using PayrollCaseStudy.Classifications;
+using PayrollCaseStudy.ClassificationTransactions;
 using PayrollCaseStudy.CommonTypes;
-using PayrollCaseStudy.EmployeeDataTransactions;
+using PayrollCaseStudy.GeneralTransactions;
 using PayrollCaseStudy.Methods;
+using PayrollCaseStudy.MethodTransactions;
 using PayrollCaseStudy.Payday;
 using PayrollCaseStudy.PayrollDomain;
 using System;
