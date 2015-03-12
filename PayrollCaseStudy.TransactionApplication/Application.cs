@@ -1,4 +1,4 @@
-﻿using PayrollCaseStudy.PayrollDomain;
+﻿using PayrollCaseStudy.TransactionApplication;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.PayrollApplication {
+namespace PayrollCaseStudy.TransactionApplication {
     public class Application {
         readonly TransactionSource _source;
         public Application(TransactionSource transactionSource) {

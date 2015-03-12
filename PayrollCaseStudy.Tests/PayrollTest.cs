@@ -6,7 +6,6 @@ using PayrollCaseStudy.Classifications;
 using PayrollCaseStudy.Methods;
 using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.Payday;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.ClassificationTransactions;
 using PayrollCaseStudy.MethodTransactions;

@@ -62,6 +62,10 @@
       <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
       <Name>PayrollCaseStudy.PayrollDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.TransactionApplication\PayrollCaseStudy.TransactionApplication.csproj">
+      <Project>{41fa82ba-88be-4962-9b5d-bafa436995a2}</Project>
+      <Name>PayrollCaseStudy.TransactionApplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

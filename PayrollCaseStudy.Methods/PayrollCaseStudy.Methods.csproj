@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectMethod.cs" />
+    <Compile Include="HoldMethod.cs" />
     <Compile Include="MailMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,5 +1,7 @@
-﻿using PayrollCaseStudy.PayrollDatabase;
+﻿using PayrollCaseStudy.Methods;
+using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
+using PayrollCaseStudy.TransactionApplication;
 using System;
 using System.Collections.Generic;
 using System.Linq;

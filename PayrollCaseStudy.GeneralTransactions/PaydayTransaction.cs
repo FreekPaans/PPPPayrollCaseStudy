@@ -1,13 +1,14 @@
 ﻿using PayrollCaseStudy.CommonTypes;
 using PayrollCaseStudy.PayrollDatabase;
 using PayrollCaseStudy.PayrollDomain;
+using PayrollCaseStudy.TransactionApplication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.Payday {
+namespace PayrollCaseStudy.GeneralTransactions {
     public class PaydayTransaction : Transaction{
         private Date _forPayDate;
         Dictionary<int,Paycheck> _paychecks = new Dictionary<int,Paycheck>();

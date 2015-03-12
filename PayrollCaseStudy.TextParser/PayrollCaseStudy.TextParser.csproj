@@ -75,17 +75,13 @@
       <Project>{9d7762ce-457b-4867-8bb8-bdd8195fe871}</Project>
       <Name>PayrollCaseStudy.MethodTransactions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Payday\PayrollCaseStudy.Payday.csproj">
-      <Project>{edcf988d-53d8-414f-9fc5-0f7368decb51}</Project>
-      <Name>PayrollCaseStudy.Payday</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.PayrollApplication\PayrollCaseStudy.PayrollApplication.csproj">
-      <Project>{8f845ea2-d31b-4933-9dca-4e2832186e6d}</Project>
-      <Name>PayrollCaseStudy.PayrollApplication</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
       <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
       <Name>PayrollCaseStudy.PayrollDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.TransactionApplication\PayrollCaseStudy.TransactionApplication.csproj">
+      <Project>{41fa82ba-88be-4962-9b5d-bafa436995a2}</Project>
+      <Name>PayrollCaseStudy.TransactionApplication</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

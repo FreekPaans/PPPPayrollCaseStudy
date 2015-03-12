@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.ClassificationTransactions {
+namespace PayrollCaseStudy.GeneralTransactions {
     public class AddCommissionedEmployee : AddEmployeeTransaction{
         private decimal _salary;
         private decimal _commissionRate;

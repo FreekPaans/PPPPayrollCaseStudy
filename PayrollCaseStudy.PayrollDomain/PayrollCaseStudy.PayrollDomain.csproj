@@ -42,14 +42,12 @@
   <ItemGroup>
     <Compile Include="Affiliation.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="HoldMethod.cs" />
     <Compile Include="NoAffiliation.cs" />
     <Compile Include="Paycheck.cs" />
     <Compile Include="PaymentClassification.cs" />
     <Compile Include="PaymentMethod.cs" />
     <Compile Include="PaymentSchedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">

@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.ClassificationTransactions {
-    public class AddSalariedEmployee : AddEmployeeTransaction{
-        private decimal _itsSalary;
+namespace PayrollCaseStudy.GeneralTransactions {
+    public class AddHourlyEmployee : AddEmployeeTransaction{
+        private decimal _hourlyRate;
 
-        public AddSalariedEmployee(int employeeId, string name, string address, decimal salary) : base(employeeId,name,address) {
-            _itsSalary = salary;
+        public AddHourlyEmployee(int empId,string name,string address,decimal hourlyRate) : base(empId,name,address){
+            _hourlyRate = hourlyRate;
         }
 
         protected override PaymentSchedule GetSchedule() {
-            return new MonthlySchedule();
+            return new WeeklySchedule();
         }
 
         protected override PaymentClassification GetClassification() {
-            return new SalariedClassification(_itsSalary);
+            return new HourlyClassification(_hourlyRate);
         }
     }
 }

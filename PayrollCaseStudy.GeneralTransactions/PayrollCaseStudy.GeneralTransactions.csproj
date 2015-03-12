@@ -40,14 +40,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCommissionedEmployee.cs" />
     <Compile Include="AddEmployeeTransaction.cs" />
+    <Compile Include="AddHourlyEmployee.cs" />
+    <Compile Include="AddSalariedEmployee.cs" />
     <Compile Include="ChangeAddressTransaction.cs" />
     <Compile Include="ChangeEmployeeTransaction.cs" />
     <Compile Include="ChangeNameTransaction.cs" />
     <Compile Include="DeleteEmployeeTransaction.cs" />
+    <Compile Include="PaydayTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PayrollCaseStudy.Classifications\PayrollCaseStudy.Classifications.csproj">
+      <Project>{786b6695-d570-408b-b802-d8a3c53788d9}</Project>
+      <Name>PayrollCaseStudy.Classifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
+      <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
+      <Name>PayrollCaseStudy.CommonTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
+      <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
+      <Name>PayrollCaseStudy.Methods</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDatabase\PayrollCaseStudy.PayrollDatabase.csproj">
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
       <Name>PayrollCaseStudy.PayrollDatabase</Name>
@@ -55,6 +71,14 @@
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
       <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
       <Name>PayrollCaseStudy.PayrollDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
+      <Project>{e8cadbb6-f6fc-4f07-a5a7-95aea58877af}</Project>
+      <Name>PayrollCaseStudy.Schedules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.TransactionApplication\PayrollCaseStudy.TransactionApplication.csproj">
+      <Project>{41fa82ba-88be-4962-9b5d-bafa436995a2}</Project>
+      <Name>PayrollCaseStudy.TransactionApplication</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
