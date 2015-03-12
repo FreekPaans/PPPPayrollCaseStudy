@@ -78,10 +78,6 @@
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
       <Name>PayrollCaseStudy.PayrollDatabase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Pay\PayrollCaseStudy.Pay.csproj">
-      <Project>{d5bb3084-4935-429d-bc84-475912f9d45d}</Project>
-      <Name>PayrollCaseStudy.Pay</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
       <Project>{17467767-cc4c-4d57-9748-1eb9bd6dfd42}</Project>
       <Name>PayrollCaseStudy.Schedules</Name>

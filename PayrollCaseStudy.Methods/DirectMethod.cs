@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayrollCaseStudy.PayrollDomain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,10 @@ namespace PayrollCaseStudy.Methods {
         public DirectMethod(string account,string bank) {
             _account = account;
             _bank = bank;
+        }
+
+        public void Pay(Paycheck paycheck) {
+            
         }
     }
 }

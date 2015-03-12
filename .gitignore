@@ -26,3 +26,15 @@
 /PayrollCaseStudy.Transactions/bin
 /PayrollCaseStudy.Tests/obj
 /PayrollCaseStudy.Tests/bin
+/PayrollCaseStudy.EmployeeDataTransactions/bin
+/PayrollCaseStudy.EmployeeDataTransactions/obj
+/PayrollCaseStudy.Employees/obj
+/PayrollCaseStudy.Employees/bin
+/PayrollCaseStudy.InMemPayrollDatabase/bin
+/PayrollCaseStudy.InMemPayrollDatabase/obj
+/PayrollCaseStudy.Payday/obj
+/PayrollCaseStudy.Payday/bin
+/PayrollCaseStudy.PayrollDomain/obj
+/PayrollCaseStudy.PayrollDomain/bin
+/PayrollCaseStudy.TextParser/obj
+/PayrollCaseStudy.TextParser/bin

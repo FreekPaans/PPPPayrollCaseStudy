@@ -1,4 +1,4 @@
-﻿using PayrollCaseStudy.Pay;
+﻿using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

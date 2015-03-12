@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1DF59F3-1D46-45EE-ACB6-569CF7CD232D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayrollCaseStudy.TextParser</RootNamespace>
+    <AssemblyName>PayrollCaseStudy.TextParser</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextParserTransactionSource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PayrollCaseStudy.Affiliations\PayrollCaseStudy.Affiliations.csproj">
+      <Project>{458871fe-5ca5-4401-9745-f1ffc6f14030}</Project>
+      <Name>PayrollCaseStudy.Affiliations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Classifications\PayrollCaseStudy.Classifications.csproj">
+      <Project>{786b6695-d570-408b-b802-d8a3c53788d9}</Project>
+      <Name>PayrollCaseStudy.Classifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
+      <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
+      <Name>PayrollCaseStudy.CommonTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.EmployeeDataTransactions\PayrollCaseStudy.EmployeeDataTransactions.csproj">
+      <Project>{855e8a45-6078-46d7-bf3c-312325ea1a8f}</Project>
+      <Name>PayrollCaseStudy.EmployeeDataTransactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Employees\PayrollCaseStudy.Employees.csproj">
+      <Project>{8401746b-67c0-4e99-b005-ec8c7fe4bc21}</Project>
+      <Name>PayrollCaseStudy.Employees</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
+      <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
+      <Name>PayrollCaseStudy.Methods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Payday\PayrollCaseStudy.Payday.csproj">
+      <Project>{edcf988d-53d8-414f-9fc5-0f7368decb51}</Project>
+      <Name>PayrollCaseStudy.Payday</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollApplication\PayrollCaseStudy.PayrollApplication.csproj">
+      <Project>{8f845ea2-d31b-4933-9dca-4e2832186e6d}</Project>
+      <Name>PayrollCaseStudy.PayrollApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
+      <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
+      <Name>PayrollCaseStudy.PayrollDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

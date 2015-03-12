@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayrollCaseStudy.PayrollDomain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,10 @@ namespace PayrollCaseStudy.Methods {
 
         public MailMethod(string address) {
             this._address = address;
+        }
+
+        public void Pay(Paycheck paycheck) {
+            
         }
     }
 }

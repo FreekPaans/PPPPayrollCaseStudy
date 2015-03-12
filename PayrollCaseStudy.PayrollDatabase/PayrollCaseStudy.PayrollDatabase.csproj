@@ -11,6 +11,7 @@
     <AssemblyName>PayrollCaseStudy.PayrollDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,34 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scope.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PayrollCaseStudy.Affiliations\PayrollCaseStudy.Affiliations.csproj">
-      <Project>{458871fe-5ca5-4401-9745-f1ffc6f14030}</Project>
-      <Name>PayrollCaseStudy.Affiliations</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Classifications\PayrollCaseStudy.Classifications.csproj">
-      <Project>{786b6695-d570-408b-b802-d8a3c53788d9}</Project>
-      <Name>PayrollCaseStudy.Classifications</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
-      <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
-      <Name>PayrollCaseStudy.Methods</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Pay\PayrollCaseStudy.Pay.csproj">
-      <Project>{d5bb3084-4935-429d-bc84-475912f9d45d}</Project>
-      <Name>PayrollCaseStudy.Pay</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
-      <Project>{17467767-cc4c-4d57-9748-1eb9bd6dfd42}</Project>
-      <Name>PayrollCaseStudy.Schedules</Name>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
+      <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
+      <Name>PayrollCaseStudy.PayrollDomain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
