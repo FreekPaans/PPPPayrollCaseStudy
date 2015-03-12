@@ -66,9 +66,25 @@
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.EmployeeDataTransactions\PayrollCaseStudy.EmployeeDataTransactions.csproj">
+      <Project>{855e8a45-6078-46d7-bf3c-312325ea1a8f}</Project>
+      <Name>PayrollCaseStudy.EmployeeDataTransactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Employees\PayrollCaseStudy.Employees.csproj">
+      <Project>{8401746b-67c0-4e99-b005-ec8c7fe4bc21}</Project>
+      <Name>PayrollCaseStudy.Employees</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.InMemPayrollDatabase\PayrollCaseStudy.InMemPayrollDatabase.csproj">
+      <Project>{b1206f1f-374a-49c8-9883-a19878a08ecf}</Project>
+      <Name>PayrollCaseStudy.InMemPayrollDatabase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
       <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
       <Name>PayrollCaseStudy.Methods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Payday\PayrollCaseStudy.Payday.csproj">
+      <Project>{edcf988d-53d8-414f-9fc5-0f7368decb51}</Project>
+      <Name>PayrollCaseStudy.Payday</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollApplication\PayrollCaseStudy.PayrollApplication.csproj">
       <Project>{8f845ea2-d31b-4933-9dca-4e2832186e6d}</Project>
@@ -78,13 +94,9 @@
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
       <Name>PayrollCaseStudy.PayrollDatabase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
-      <Project>{17467767-cc4c-4d57-9748-1eb9bd6dfd42}</Project>
-      <Name>PayrollCaseStudy.Schedules</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.Transactions\PayrollCaseStudy.Transactions.csproj">
-      <Project>{06ffd87f-ad23-4d38-b6e6-3e8d41701435}</Project>
-      <Name>PayrollCaseStudy.Transactions</Name>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
+      <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
+      <Name>PayrollCaseStudy.PayrollDomain</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
