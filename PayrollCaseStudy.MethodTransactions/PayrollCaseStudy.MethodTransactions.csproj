@@ -39,20 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeDirectTransaction.cs" />
-    <Compile Include="ChangeHoldTransaction.cs" />
-    <Compile Include="ChangeMailTransaction.cs" />
-    <Compile Include="ChangeMethodTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.GeneralTransactions\PayrollCaseStudy.GeneralTransactions.csproj">
-      <Project>{8401746b-67c0-4e99-b005-ec8c7fe4bc21}</Project>
-      <Name>PayrollCaseStudy.GeneralTransactions</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
       <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>

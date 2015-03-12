@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.GeneralTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public abstract class AddEmployeeTransaction: Transaction {
         private string _address;
         private string _name;

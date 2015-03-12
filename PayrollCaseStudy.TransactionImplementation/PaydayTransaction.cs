@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.GeneralTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public class PaydayTransaction : Transaction{
         private Date _forPayDate;
         Dictionary<int,Paycheck> _paychecks = new Dictionary<int,Paycheck>();

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B9629E29-38E3-49AD-9F4D-1B75A85AAA17}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{26F266DF-5D1A-415F-8BEA-ADBC0D1BFC98}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PayrollCaseStudy.ConsoleHost</RootNamespace>
-    <AssemblyName>PayrollCaseStudy.ConsoleHost</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>PayrollCaseStudy.TransactionFactory</RootNamespace>
+    <AssemblyName>PayrollCaseStudy.TransactionFactory</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,45 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PayrollApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TestTransactions.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Compile Include="TransactionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.InMemPayrollDatabase\PayrollCaseStudy.InMemPayrollDatabase.csproj">
-      <Project>{b1206f1f-374a-49c8-9883-a19878a08ecf}</Project>
-      <Name>PayrollCaseStudy.InMemPayrollDatabase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.PayrollDatabase\PayrollCaseStudy.PayrollDatabase.csproj">
-      <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
-      <Name>PayrollCaseStudy.PayrollDatabase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.TextParser\PayrollCaseStudy.TextParser.csproj">
-      <Project>{a1df59f3-1d46-45ee-acb6-569cf7cd232d}</Project>
-      <Name>PayrollCaseStudy.TextParser</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.TransactionApplication\PayrollCaseStudy.TransactionApplication.csproj">
       <Project>{41fa82ba-88be-4962-9b5d-bafa436995a2}</Project>
       <Name>PayrollCaseStudy.TransactionApplication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.TransactionFactory\PayrollCaseStudy.TransactionFactory.csproj">
-      <Project>{26f266df-5d1a-415f-8bea-adbc0d1bfc98}</Project>
-      <Name>PayrollCaseStudy.TransactionFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.TransactionImplementation\PayrollCaseStudy.TransactionImplementation.csproj">
-      <Project>{149a53ed-ca4c-41ca-941a-17fd7c36de64}</Project>
-      <Name>PayrollCaseStudy.TransactionImplementation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

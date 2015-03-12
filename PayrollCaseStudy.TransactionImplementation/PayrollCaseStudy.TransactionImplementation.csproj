@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B9629E29-38E3-49AD-9F4D-1B75A85AAA17}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{149A53ED-CA4C-41CA-941A-17FD7C36DE64}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PayrollCaseStudy.ConsoleHost</RootNamespace>
-    <AssemblyName>PayrollCaseStudy.ConsoleHost</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>PayrollCaseStudy.TransactionImplementation</RootNamespace>
+    <AssemblyName>PayrollCaseStudy.TransactionImplementation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,33 +39,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PayrollApplication.cs" />
+    <Compile Include="AddCommissionedEmployee.cs" />
+    <Compile Include="AddEmployeeTransaction.cs" />
+    <Compile Include="AddHourlyEmployee.cs" />
+    <Compile Include="AddSalariedEmployee.cs" />
+    <Compile Include="ChangeAddressTransaction.cs" />
+    <Compile Include="ChangeAffiliationTransaction.cs" />
+    <Compile Include="ChangeClassificationTransaction.cs" />
+    <Compile Include="ChangeCommissionedTransaction.cs" />
+    <Compile Include="ChangeDirectTransaction.cs" />
+    <Compile Include="ChangeEmployeeTransaction.cs" />
+    <Compile Include="ChangeHoldTransaction.cs" />
+    <Compile Include="ChangeHourlyTransaction.cs" />
+    <Compile Include="ChangeMailTransaction.cs" />
+    <Compile Include="ChangeMemberTransaction.cs" />
+    <Compile Include="ChangeMethodTransaction.cs" />
+    <Compile Include="ChangeNameTransaction.cs" />
+    <Compile Include="ChangeSalariedTransaction.cs" />
+    <Compile Include="ChangeUnaffiliatedTransaction.cs" />
+    <Compile Include="DeleteEmployeeTransaction.cs" />
+    <Compile Include="PaydayTransaction.cs" />
+    <Compile Include="PayrollTransactionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesReceiptTransaction.cs" />
+    <Compile Include="ServiceChargeTransaction.cs" />
+    <Compile Include="TimeCardTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TestTransactions.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\PayrollCaseStudy.Affiliations\PayrollCaseStudy.Affiliations.csproj">
+      <Project>{458871fe-5ca5-4401-9745-f1ffc6f14030}</Project>
+      <Name>PayrollCaseStudy.Affiliations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Classifications\PayrollCaseStudy.Classifications.csproj">
+      <Project>{786b6695-d570-408b-b802-d8a3c53788d9}</Project>
+      <Name>PayrollCaseStudy.Classifications</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">
       <Project>{b4923ecf-348a-42c0-be98-51d3a08aa127}</Project>
       <Name>PayrollCaseStudy.CommonTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.InMemPayrollDatabase\PayrollCaseStudy.InMemPayrollDatabase.csproj">
-      <Project>{b1206f1f-374a-49c8-9883-a19878a08ecf}</Project>
-      <Name>PayrollCaseStudy.InMemPayrollDatabase</Name>
+    <ProjectReference Include="..\PayrollCaseStudy.Methods\PayrollCaseStudy.Methods.csproj">
+      <Project>{817ebb76-bb99-4cdf-9a41-10fa19d99d9b}</Project>
+      <Name>PayrollCaseStudy.Methods</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.PayrollDatabase\PayrollCaseStudy.PayrollDatabase.csproj">
       <Project>{367f5dd5-b653-4905-8856-97fd552427e1}</Project>
       <Name>PayrollCaseStudy.PayrollDatabase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.TextParser\PayrollCaseStudy.TextParser.csproj">
-      <Project>{a1df59f3-1d46-45ee-acb6-569cf7cd232d}</Project>
-      <Name>PayrollCaseStudy.TextParser</Name>
+    <ProjectReference Include="..\PayrollCaseStudy.PayrollDomain\PayrollCaseStudy.PayrollDomain.csproj">
+      <Project>{8f8a8ce3-9151-4a80-9daa-37665def7eed}</Project>
+      <Name>PayrollCaseStudy.PayrollDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayrollCaseStudy.Schedules\PayrollCaseStudy.Schedules.csproj">
+      <Project>{e8cadbb6-f6fc-4f07-a5a7-95aea58877af}</Project>
+      <Name>PayrollCaseStudy.Schedules</Name>
     </ProjectReference>
     <ProjectReference Include="..\PayrollCaseStudy.TransactionApplication\PayrollCaseStudy.TransactionApplication.csproj">
       <Project>{41fa82ba-88be-4962-9b5d-bafa436995a2}</Project>
@@ -76,10 +101,6 @@
     <ProjectReference Include="..\PayrollCaseStudy.TransactionFactory\PayrollCaseStudy.TransactionFactory.csproj">
       <Project>{26f266df-5d1a-415f-8bea-adbc0d1bfc98}</Project>
       <Name>PayrollCaseStudy.TransactionFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PayrollCaseStudy.TransactionImplementation\PayrollCaseStudy.TransactionImplementation.csproj">
-      <Project>{149a53ed-ca4c-41ca-941a-17fd7c36de64}</Project>
-      <Name>PayrollCaseStudy.TransactionImplementation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,11 +1,7 @@
 ﻿using PayrollCaseStudy.Affiliations;
-using PayrollCaseStudy.AffiliationTransactions;
 using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.ClassificationTransactions;
 using PayrollCaseStudy.CommonTypes;
-using PayrollCaseStudy.GeneralTransactions;
 using PayrollCaseStudy.Methods;
-using PayrollCaseStudy.MethodTransactions;
 using PayrollCaseStudy.PayrollDomain;
 using PayrollCaseStudy.TransactionApplication;
 using System;
@@ -18,10 +14,12 @@ using System.Threading.Tasks;
 
 namespace PayrollCaseStudy.PayrollApplication {
     public class TextParserTransactionSource : TransactionSource{
-        readonly TextReader _reader;  
+        readonly TextReader _reader;
+        readonly TransactionFactory.Factory _transactionFactory;
 
-        public TextParserTransactionSource(TextReader reader) {
+        public TextParserTransactionSource(TextReader reader, TransactionFactory.Factory factory) {
             _reader = reader;
+            _transactionFactory = factory;
         }
         public Transaction Next() {
             while(true) {
@@ -64,7 +62,7 @@ namespace PayrollCaseStudy.PayrollApplication {
         }
 
         private Transaction PayDate(string line,WordReader wordReader) {
-            return new PaydayTransaction(wordReader.NextAsDate());
+            return _transactionFactory.MakePaydayTransaction(wordReader.NextAsDate());
         }
 
         private Transaction ChangeEmployee(string line,WordReader wordReader) {
@@ -96,71 +94,72 @@ namespace PayrollCaseStudy.PayrollApplication {
         }
 
         private Transaction ChangeNoMember(int empId,WordReader wordReader) {
-            return new ChangeUnaffiliatedTransaction(empId);
+            return _transactionFactory.MakeChangeUnaffiliatedTransaction(empId);
         }
 
         private Transaction ChangeMail(int empId,WordReader wordReader) {
-            return new ChangeMailTransaction(empId,wordReader.NextQuoted());
+            return _transactionFactory.MakeChangeMailTransaction(empId,wordReader.NextQuoted());
         }
 
         private Transaction ChangeHold(int empId,WordReader wordReader) {
-            return new ChangeHoldTransaction(empId);
+            return _transactionFactory.MakeChangeHoldTransaction(empId);
         }
 
         private Transaction ChangeDirect(int empId,WordReader wordReader) {
-            return new ChangeDirectTransaction(empId,wordReader.Next(),wordReader.Next());
+            return _transactionFactory.MakeChangeDirectTransaction(empId,wordReader.Next(),wordReader.Next());
         }
 
         private Transaction ChangeCommissioned(int empId,WordReader wordReader) {
-            return new ChangeCommissionedTransaction(empId,wordReader.NextAsDecimal(),wordReader.NextAsDecimal());
+            return _transactionFactory.MakeChangeCommissionedTransaction(empId,wordReader.NextAsDecimal(),wordReader.NextAsDecimal());
         }
 
         private Transaction ChangeSalaried(int empId,WordReader wordReader) {
-            return new ChangeSalariedTransaction(empId,wordReader.NextAsDecimal());
+            return _transactionFactory.MakeChangeSalariedTransaction(empId,wordReader.NextAsDecimal());
         }
 
         private Transaction ChangeHourly(int empId,WordReader wordReader) {
-            return new ChangeHourlyTransaction(empId,wordReader.NextAsDecimal());
+            return _transactionFactory.MakeChangeHourlyTransaction(empId,wordReader.NextAsDecimal());
         }
 
         private Transaction ChangeEmployeeAddress(int empId,WordReader wordReader) {
-            return new ChangeAddressTransaction(empId,wordReader.NextQuoted());
+            return _transactionFactory.MakeChangeAddressTransaction(empId,wordReader.NextQuoted());
         }
 
         private Transaction ChangeEmployeeName(int empId,WordReader wordReader) {
-            return new ChangeNameTransaction(empId,wordReader.NextQuoted());
+            return _transactionFactory.MakeChangeNameTransaction(empId,wordReader.NextQuoted());
         }
 
         private Transaction ChangeEmployeeMember(int empId,WordReader wordReader) {
             var memberId = wordReader.NextAsInt();
             wordReader.Skip();
             var dues = wordReader.NextAsDecimal();
-            return new ChangeMemberTransaction(empId,memberId,dues);
+            return _transactionFactory.MakeChangeMemberTransaction(empId,memberId,dues);
         }
 
         private Transaction ServiceCharge(string line,WordReader wordReader) {
             var memberId = wordReader.NextAsInt();
             var amount = wordReader.NextAsDecimal();
-            return new ServiceChargeTransaction(memberId,Date.Today,amount);
+            return _transactionFactory.MakeServiceChargeTransaction(memberId,Date.Today,amount);
         }
 
         private Transaction SalesReceipt(string line,WordReader wordReader) {
             var empId = wordReader.NextAsInt();
             var date = wordReader.NextAsDate();
             var amount = wordReader.NextAsDecimal();
-            return new SalesReceiptTransaction(amount,date,empId);
+            return _transactionFactory.MakeSalesReceiptTransaction(amount,date,empId);
         }
 
         private Transaction TimeCard(string line,WordReader wordReader) {
             var empId = wordReader.NextAsInt();
             var date = wordReader.NextAsDate();
             var hour = wordReader.NextAsDecimal();
-            return new TimeCardTransaction(date,hour,empId);
+            return _transactionFactory.MakeTimeCardTransaction(date,hour,empId);
         }
 
         private Transaction DelEmp(string line,WordReader wordReader) {
-            return new DeleteEmployeeTransaction(wordReader.NextAsInt());
+            return _transactionFactory.MakeDeleteEmployeeTransaction(wordReader.NextAsInt());
         }
+
 
         private Transaction AddEmp(string line, WordReader wordReader) {
             var empId = wordReader.NextAsInt();
@@ -178,17 +177,15 @@ namespace PayrollCaseStudy.PayrollApplication {
         }
 
         private Transaction AddCommissionedEmployee(int empId,string name,string address,WordReader wordReader) {
-            return new AddCommissionedEmployee(empId,name,address, wordReader.NextAsDecimal(), wordReader.NextAsDecimal());
+            return _transactionFactory.MakeAddCommissionedEmployeeTransaction(empId,name,address, wordReader.NextAsDecimal(), wordReader.NextAsDecimal());
         }
 
         private Transaction AddSalariedEmployee(int empId,string name,string address,WordReader wordReader) {
-            return new AddSalariedEmployee(empId,name,address,wordReader.NextAsDecimal());
+            return _transactionFactory.MakeAddSalariedEmployeeTransaction(empId,name,address,wordReader.NextAsDecimal());
         }
 
         private Transaction AddHourlyEmployee(int empId,string name,string address,WordReader wordReader) {
-            return new AddHourlyEmployee(empId,name,address,wordReader.NextAsDecimal());
+            return _transactionFactory.MakeAddHourlyEmployeeTransaction(empId,name,address,wordReader.NextAsDecimal());
         }
-
-        
     }
 }

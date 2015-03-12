@@ -48,3 +48,7 @@
 /PayrollCaseStudy.MethodTransactions/obj
 /PayrollCaseStudy.TransactionApplication/obj
 /PayrollCaseStudy.TransactionApplication/bin
+/PayrollCaseStudy.TransactionFactory/obj
+/PayrollCaseStudy.TransactionFactory/bin
+/PayrollCaseStudy.TransactionImplementation/obj
+/PayrollCaseStudy.TransactionImplementation/bin

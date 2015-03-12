@@ -1,12 +1,11 @@
 ﻿using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.GeneralTransactions;
 using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.ClassificationTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public abstract class ChangeClassificationTransaction : ChangeEmployeeTransaction{
         public ChangeClassificationTransaction(int employeeId) : base(employeeId) {
         }

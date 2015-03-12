@@ -6,20 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.ClassificationTransactions {
-    public class ChangeHourlyTransaction : ChangeClassificationTransaction{
+namespace PayrollCaseStudy.TransactionImplementation {
+    public class AddHourlyEmployee : AddEmployeeTransaction{
         private decimal _hourlyRate;
 
-        public ChangeHourlyTransaction(int empId,decimal hourlyRate) : base(empId){
+        public AddHourlyEmployee(int empId,string name,string address,decimal hourlyRate) : base(empId,name,address){
             _hourlyRate = hourlyRate;
-        }
-
-        protected override PaymentClassification GetClassification() {
-            return new HourlyClassification(_hourlyRate);
         }
 
         protected override PaymentSchedule GetSchedule() {
             return new WeeklySchedule();
+        }
+
+        protected override PaymentClassification GetClassification() {
+            return new HourlyClassification(_hourlyRate);
         }
     }
 }

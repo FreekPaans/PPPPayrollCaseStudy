@@ -1,12 +1,11 @@
-﻿using PayrollCaseStudy.GeneralTransactions;
-using PayrollCaseStudy.Methods;
+﻿using PayrollCaseStudy.Methods;
 using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.MethodTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public abstract class ChangeMethodTransaction : ChangeEmployeeTransaction{
         
         public ChangeMethodTransaction(int empId) :base(empId){

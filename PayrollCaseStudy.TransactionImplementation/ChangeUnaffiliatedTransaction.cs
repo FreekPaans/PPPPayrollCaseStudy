@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.AffiliationTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public class ChangeUnaffiliatedTransaction : ChangeAffiliationTransaction{
         public ChangeUnaffiliatedTransaction(int empId) : base(empId){
         }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.GeneralTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public class DeleteEmployeeTransaction : Transaction{
         private int _employeeId;
 

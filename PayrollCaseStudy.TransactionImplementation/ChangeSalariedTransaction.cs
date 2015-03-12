@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PayrollCaseStudy.ClassificationTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public class ChangeSalariedTransaction : ChangeClassificationTransaction{
         private decimal _monthlySalary;
         

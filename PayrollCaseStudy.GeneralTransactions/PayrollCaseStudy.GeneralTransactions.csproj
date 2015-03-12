@@ -40,15 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCommissionedEmployee.cs" />
-    <Compile Include="AddEmployeeTransaction.cs" />
-    <Compile Include="AddHourlyEmployee.cs" />
-    <Compile Include="AddSalariedEmployee.cs" />
-    <Compile Include="ChangeAddressTransaction.cs" />
-    <Compile Include="ChangeEmployeeTransaction.cs" />
-    <Compile Include="ChangeNameTransaction.cs" />
-    <Compile Include="DeleteEmployeeTransaction.cs" />
-    <Compile Include="PaydayTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

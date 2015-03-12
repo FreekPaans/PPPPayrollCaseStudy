@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.MethodTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public class ChangeHoldTransaction : ChangeMethodTransaction{
         
         public ChangeHoldTransaction(int empId) :base(empId){

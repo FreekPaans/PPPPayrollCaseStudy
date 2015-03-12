@@ -39,11 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeAffiliationTransaction.cs" />
-    <Compile Include="ChangeMemberTransaction.cs" />
-    <Compile Include="ChangeUnaffiliatedTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceChargeTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.Affiliations\PayrollCaseStudy.Affiliations.csproj">

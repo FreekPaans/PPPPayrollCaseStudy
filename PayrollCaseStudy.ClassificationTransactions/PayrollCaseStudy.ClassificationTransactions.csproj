@@ -39,13 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeClassificationTransaction.cs" />
-    <Compile Include="ChangeCommissionedTransaction.cs" />
-    <Compile Include="ChangeHourlyTransaction.cs" />
-    <Compile Include="ChangeSalariedTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalesReceiptTransaction.cs" />
-    <Compile Include="TimeCardTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayrollCaseStudy.CommonTypes\PayrollCaseStudy.CommonTypes.csproj">

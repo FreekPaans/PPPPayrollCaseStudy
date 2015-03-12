@@ -1,5 +1,4 @@
 ﻿using PayrollCaseStudy.Classifications;
-using PayrollCaseStudy.GeneralTransactions;
 using PayrollCaseStudy.PayrollDomain;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollCaseStudy.GeneralTransactions {
+namespace PayrollCaseStudy.TransactionImplementation {
     public class AddCommissionedEmployee : AddEmployeeTransaction{
         private decimal _salary;
         private decimal _commissionRate;
